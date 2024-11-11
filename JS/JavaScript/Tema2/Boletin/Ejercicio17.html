@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="blur" value="Blur (Quitame el foco)" />
+    <div id="out">MouseOut</div>
+    <div id="over">MouseOver</div>
+    <script>
+        var sobre = document.getElementById('blur');
+        sobre.addEventListener("blur", function () {
+            // Aquí colocas la lógica que quieres que ocurra al perder el foco
+            alert("Has perdido el foco en el campo de texto.");
+        }
+        );
+        var fuera = document.getElementById('out');
+        fuera.addEventListener("out", function()
+        {
+            alert("Estoy fuera de la caja");
+        }
+        );
+        var dentro = document.getElementById('over');
+        dentro.addEventListener("over", function()
+        {
+            alert("Estoy dentro de la caja");
+        }
+        );
+    </script>
+
+</body>
+
+</html>

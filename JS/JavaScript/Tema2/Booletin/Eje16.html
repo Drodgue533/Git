@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Comprobar DNI</h1>
+    <label for="dni">Introduzca los números del dni: </label>
+    <input type="number" id="dniUsu">
+    <h3 id="texto"></h3>
+    <input type="submit" id="boton" value="Enviar" onclick="calcularLetra()">
+
+    <script>
+        function calcularLetra(){
+            var dni = document.getElementById('dniUsu').value;
+            const cadenaDNI="T R W A G M Y F P D X B N J Z S Q V H L C K E";
+            var letraDNI = cadenaDNI.split(" ");
+            var letra = letraDNI[dni%23];
+            document.getElementById('texto').innerHTML = `${letra}`
+        }
+    </script>
+</body>
+</html>

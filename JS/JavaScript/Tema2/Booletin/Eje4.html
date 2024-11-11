@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function comprobarNota(){
+
+            var nota = document.getElementById('nota').value;
+            var mensaje;
+
+           if(nota < 5){
+            mensaje = "Suspendido";
+           }else if(nota >= 5 && nota < 7){
+            mensaje = "Aprobado";
+           }else if(nota >= 7 && nota < 9 ){
+            mensaje = "Notable";
+           }else{
+            mensaje = "Sobresaliente";
+           }
+          // alert('Tu calificación es: ' + mensaje);
+           document.getElementById('resultado').textContent = mensaje;
+        }
+        
+
+    </script>
+    <h2>Introduce tu nota, y te diré la calificación</h2>
+    Nota: <input type="number" id="nota" name="nota" required>
+    <button type="button" onclick="comprobarNota()">Resultado</button>
+    <br>
+    <br>
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+
+
+    <h3>Introduce los créditos que vayas a pagar</h3>
+    Créditos: <input type="number" id="creditos" name="creditos" required>
+    <button type="button" onclick="acceso()">Acceso</button>
+    <br>
+    <br>
+    <p id="acceso"></p>
+    <script>
+        /*
+        En una sala de juegos existen tres salas: Consolas, Juegos 2D, Juegos 3D, Realidad Virtual. Si un usuario paga
+4 créditos puede acceder a todas, si paga 3 solo podrá acceder a las tres primeras, si paga 2 a las dos
+primeras y si paga 1 solo a la primera sala. Pida los créditos e indique a que salas puede ir
+*/
+        function acceso(){
+            var creditos = document.getElementById('creditos').value;
+            var mensaje;
+            creditos = parseFloat(creditos);
+    
+            if(creditos == 4){
+                mensaje = "Tienes acceso a: Consolas, Juegos 2D, Juegos 3D, Realidad Virtual. ";
+            }else if(creditos == 3){
+                mensaje = "Tienes acceso a: Consolas, Juegos 2D, Juegos 3D.";
+            }else if(creditos == 2){
+                mensaje = "Tienes acceso a: Consolas, Juegos 2D.";
+            }else if(creditos == 1){
+                mensaje = "Tienes acceso a: Consolas.";
+            }else{
+                mensaje = "Por favor, introduce una cantidad de créditos entre 4 y 1.";
+            }
+    
+            document.getElementById('acceso').textContent = mensaje;
+        }
+       
+
+    </script>
+   
+</body>
+</html>

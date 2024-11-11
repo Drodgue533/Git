@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Número: <input type="number" id="numero" min="1">
+    <button type="button" onclick="esCapicua()">Comprobar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+
+        function esCapicua(){
+
+            // Obtenemos el número
+
+            var numero = parseInt(document.getElementById('numero').value);
+            let original = numero;
+            let invertido = 0;
+
+            // Invertimos el número
+
+            while (numero >0){
+                invertido = invertido * 10 + (numero % 10); // Obtener último dígito y añadirlo
+                numero = Math.floor(numero / 10);  // Eliminar el último dígito
+            }
+       
+
+        if(original == invertido){
+            document.getElementById('resultado').innerHTML = "Es capicúa";
+        }else{
+            document.getElementById('resultado').innerHTML = "No es capicúa";
+        }
+
+    }
+
+    </script>
+
+</body>
+</html>

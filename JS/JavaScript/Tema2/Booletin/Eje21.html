@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let dia = parseInt(prompt("Dame el día: "));
+        let mes = parseInt(prompt("Dame el mes: "));
+        let anio = parseInt(prompt("Dame el año: "));
+
+        let fecha = new Date(anio, mes, dia);
+
+        console.log(fecha);
+
+        let diaSemana = fecha.getDay();
+
+        console.log(diaSemana);
+
+        const semana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
+        let resultado = semana[diaSemana];
+
+        console.log(resultado);
+
+        document.write(`<h1>Hoy es ${dia} de ${mes} de ${anio} y es ${resultado}</h1>`)
+    </script>
+
+</body>
+</html>

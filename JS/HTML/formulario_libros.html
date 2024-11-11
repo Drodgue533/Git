@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <label for="nombre_libro">Título</label>
+            <select name="Libros" id="Libros">
+                <option value="libro1">La reina roja</option>
+                <option value="libro2">Eduardo manos tijeras</option>
+                <option value="libro3">La dama y el vagabundo</option>
+            </select>
+            <br>
+            <label for="dias">Días</label>
+            <input type="number" onfocusout="coste.value=dias.value*2 + '€'" id="dias" name="dias" value="8">
+            <p>Precio: <output id="coste"></output></p>
+            <br>
+            <label for="observaciones">Observaciones</label>
+            <br>
+            <textarea class="form_control" id="observaciones" name="observaciones" cols="40" rows="4" style="overflow: hidden;"></textarea>
+            <br>
+            <label for="marca">Escribe la marca de tu Ebook:</label>
+            <select name="ebook" id="ebook">
+                <option value="xiaomi">Xiaomi</option>
+                <option value="kobo">Kobo</option>
+            </select>
+            <br>
+            <p>Datos del cliente</p>
+            <label for="dias2">Dias:</label>
+            <input type="number" id="dias2" onchange="coste2.value = dias2.value*2 + '€'">
+            <br>
+            <p>Total: <output name="coste2"></output></p>
+        </fieldset>
+
+        <br>
+        <fieldset>
+        <legend>Datos del cliente</legend>
+        <label>Nombre</label>
+        <input type="text" id="nombre">
+        <br>
+        <label>Apellidos</label>
+        <input type="text" id="nombre">
+    </fieldset>
+    </form>
+</body>
+</html>

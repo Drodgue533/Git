@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td{
+            border-collapse: collapse;
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="cadena">Introduce una oracion</label>
+        <input type="text" id="cadena";><br>
+        <button type="button" id="boton"  onclick="compruebo()">Comprobar</button>
+    </form>
+    <h3 id="resultado"></h3>
+    <table id="tabla"></table>
+    <script>
+        let cadena = document.getElementById("cadena");
+        let resultado = document.getElementById("resultado");
+        let tabla = document.getElementById("tabla");
+
+        function compruebo(){
+            let cadsinEsp = cadena.value.trim().replaceAll(" ","");
+            let reversa = cadsinEsp.split("").reverse().join("");
+            console.log(cadsinEsp);
+            console.log(cadsinEsp.length);
+            console.log(reversa);
+            if(cadsinEsp == reversa){
+                resultado.innerHTML="ES CAPICUA";
+            }else{
+                resultado.innerHTML="NO ES CAPICUA";
+            }
+            for(let i=0; i<reversa.length; i++){
+                tabla.innerHTML += <tr><td>${cadsinEsp[i]}</td><td>${reversa[i]}</td></tr>;
+
+            }
+            
+        }
+    </script>
+
+</body>
+</html>

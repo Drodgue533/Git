@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body>
+    <script>
+        function factorial()
+        {
+           var numero = document.getElementById("numero").value;
+           numero = parseInt(numero);
+           let resul = 1;
+            for(let i = numero; i > 0; i--){
+                resul *= i;
+            }
+            alert("El factorial de " + numero + " es " + resul);
+        }
+        function dibujar() {
+            var numero = document.getElementById("numero").value;
+            numero = parseInt(numero);
+            var texto = "";
+            var parrafo = document.getElementById("dibujo");
+         for(let fila = 1;fila <= numero; fila++){
+            for(let i = fila; i > 0 ; i--){
+                texto += "*";
+             }
+             parrafo.innerHTML += texto + '<br>';
+             texto = "";
+         }
+        }
+    </script>
+    <h2>Factorial del número introducido</h2>
+    <form>
+        Número: <input type="number" id="numero">
+        <button type="button" onclick="factorial()">Resultado</button>
+        <button type="button" onclick="dibujar()">Dibujar</button>
+    </form>
+    <p id="dibujo"></p>
+</body>
+</html>

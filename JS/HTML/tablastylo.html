@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5 style="color: brown; font-weight: normal; font-size: 28px; font-family:'Courier New', Courier, monospace; text-transform: uppercase;"></h5>
+    <style type="text/css">
+
+        table{
+            border: 2px solid green;
+        }
+        td,th{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        th{
+            background: black;
+            color: beige;
+            text-transform: uppercase;
+        }
+        table td {
+            text-align: center;
+            border-bottom: 2px solid blue;
+            background-color: green;
+        }
+        
+    </style>
+    <h5>Agrupado</h5>
+    <table>
+        <caption>Tabla II: Agrupando celdas horizontal y vertical</caption>
+            <tr>
+                <th>Encabezado 1</th>
+                <th>Encabezado 2</th>
+                <th>Encabezado 3</th>
+                <th>Encabezado 4</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Campo 1</td>
+                <td>Campo 2</td>
+                <td>Campo 3</td>
+                <td>Campo 4</td>
+            </tr>
+            <tr>
+                <td colspan="2">Campo 6</td>
+                <td>Campo 8</td>
+            </tr>
+            <tr>
+                <td>Campo 7</td>
+                <td>Campo 8</td>
+                <td colspan="2" rowspan="2">Campo 9</td>
+            </tr>
+            <tr>
+                <td>Campo 10</td>
+                <td>Campo 11</td>
+            </tr>
+    </table>
+
+    <h5>Aplicando Semántica</h5>
+
+    <table>
+        <caption>Notas de DIW</caption>
+        <tfoot>
+            <tr>
+                <td>Media</td>
+                <td>6.32</td>
+                <td>8.56</td>
+                <td>9.65</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr>
+                <th rowspan="2">Alumna/o</th>
+                <th colspan="3">Notas</th>
+            </tr>
+            <tr>
+                <td>1º Ev</td>
+                <td>2º Ev</td>
+                <td>3º Ev</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Amarosa</td>
+                <td>3.2</td>
+                <td>5.6</td>
+                <td>5.9</td>
+            </tr>
+            <tr>
+                <td>Amparo</td>
+                <td>5.6</td>
+                <td>5.9</td>
+                <td>6.7</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var empresa = {
+            nombre: "Helados SuperJuaky",
+            actividad: "Helados artesanales",
+            direccion: {
+                calle: "La Barca",
+                numero: "123",
+                cp:"11160",
+                city:"El colorado",
+                state:"Kansas Sity"
+            },
+            anioCreacion:2021
+        };
+
+        // Para acceder al objeto dentro del objeto
+
+        empresa.direccion.cp = "33117";
+        empresa["direccion"]["numero"] = "100";
+
+        var direccion = empresa["direccion"]["numero"];
+        console.log(direccion);
+
+        // Podemos crear un array o matriz de objetos
+
+        var direcciones = [{
+            calle:"La paloma",
+            numero: "123",
+        },{
+            calle:"Dr.Nitrato",
+            numero:"58",
+        }];
+        
+        // mostramos la dirección
+
+        var nombreCalle = direcciones[0].calle;
+        console.log(nombreCalle);
+        
+    </script>
+</body>
+
+</html>

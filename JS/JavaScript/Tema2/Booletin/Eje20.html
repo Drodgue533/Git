@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+        function dibujar(){
+            var numero = document.getElementById('numero').value;
+            numero = parseInt(numero);
+            var texto = "";
+            var dibujo = document.getElementById('dibujo');
+
+            for(let fila = 1; fila <= numero; fila++){
+                for(let i = fila; i > 0 ; i-- ){
+                    texto += "*";
+                }
+                dibujo.innerHTML += texto + '<br>';
+
+                // es importante poner texto vacío una vez pintemos, de lo contrario funcionará mal
+
+                texto = "";
+            }
+        }
+
+</script>
+
+    <h2>Pirámide del número</h2>
+    <form>
+        Número: <input type="number" id="numero">
+        <button type="button" onclick="dibujar()">Dibujar</button>
+    </form>
+    <p id="dibujo"></p>
+</body>
+</html>

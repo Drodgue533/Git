@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Quedan </p>
+    <p>DIAS</p>
+    <p id="dias"></p>
+    <p>HORAS</p>
+    <p id="horas"></p>  
+    <p>MINUTOS</p>
+    <p id="minutos"></p> 
+    <p>Segundos</p>
+    <p id="segundos"></p> 
+    <p>Milisegundos</p>
+    <p id="milisegundos"></p>
+
+    <script>
+
+        const fecha1 = new Date();
+        console.log(fecha1);
+        const fecha2= new Date("1971/03/07 07:32:25");
+        console.log(fecha2);
+        
+        // dia del juicio final
+
+        const fecha3= new Date(872817240000);
+        console.log(fecha3);
+
+        const fecha4 = new Date(2018, 1, 25,23,32,12,5);
+        console.log(fecha4);
+
+        const micumple=new Date("2025/03/07 15:30:00.250");
+        console.log(micumple.getDate());//7
+        console.log(micumple.getMonth());//2
+        console.log(micumple.getFullYear());//2025
+        console.log(micumple.getHours());// 15
+        console.log(micumple.getMinutes());//30
+        console.log(micumple.getSeconds());//0
+        console.log(micumple.getMilliseconds());//2025
+
+        const MESES=[
+            "ENERO",
+            "FEBRERO",
+            "MARZO",
+            "ABRIL",
+            "MAYO",
+            "JUNIO",
+            "JULIO",
+            "AGOSTO",
+            "SEPTIEMBRE",
+            "OCTUBRE",
+            "NOVIEMBRE",
+            "DICIEMBRE"
+        ];
+        const fechaActual = new Date();
+        const navidad = new Date("2024/11/24 00:00:00:00");
+        console.log(MESES[fechaActual.getMonth()]);
+    </script>
+
+    <script>
+
+        //BOM window.onload............-> setInterval(funcion,milisegundos);
+        window.onload=function(){
+            setInterval(Presentar_Tiempo,1000);
+        }
+        function Presentar_Tiempo(){
+            let ahora = new Date();
+            let anioactual = ahora.getFullYear();
+            var fecha_fin_anio = new Date(anioactual,11,31,23,59,59);
+            var diferencia = fecha_fin_anio.getTime() - ahora.getTime();
+
+            /*
+            console.log(fecha_fin_anio);
+            console.log(document.getElementById("milisegundos").innerHTML=fecha_fin_anio.getTime()-ahora.getTime());
+            console.log(document.getElementById("segundos").innerHTML = fecha_fin_anio.getTime() - segundos.getTime());
+            */
+
+            var milisegundos = diferencia;
+            var segundos = Math.floor((diferencia / 1000) % 60);
+            var minutos = Math.floor((diferencia / 1000 / 60) % 60);
+            var horas = Math.floor((diferencia / 1000 / 60 / 60) % 24);
+            var dias = Math.floor((diferencia / 1000 / 60 / 60 /24)); 
+            
+            document.getElementById("milisegundos").innerHTML = milisegundos;
+            document.getElementById("segundos").innerHTML = segundos;
+            document.getElementById("minutos").innerHTML = minutos;
+            document.getElementById("horas").innerHTML = horas;
+            document.getElementById("dias").innerHTML = dias;
+
+        }
+        
+
+    </script>
+
+</body>
+</html>

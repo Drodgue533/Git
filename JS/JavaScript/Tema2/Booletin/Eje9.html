@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+            /*
+
+        sando switch, lea una compra e indique:
+1. Si ha comprado menos de 100 euros no hay descuento
+2. Si la compra está entre 100 y 300 euros le descuenta un 5%
+3. Si la compra está por encima de 300 hasta 500 euros le descuenta un 10%
+4. Si la compra supera los 400 euros le descuenta un 15%
+*/
+
+        var compra = prompt("Introduce el valor de la factura: ");
+        var compra = parseFloat(compra);
+        var mensaje;
+        var descuento;
+
+        switch(true){
+            case(compra < 100):
+            mensaje = "No tiene descuento. ";
+            break;
+            case(compra >= 100 && compra < 300):
+            mensaje = "Tiene un descuento del 5% ";
+            descuento = 5;
+            break;
+            case(compra >= 300 && compra < 400):
+            mensaje = "Tiene un descuento del 10% ";
+            descuento = 10;
+            break;
+            case(compra > 400):
+            mensaje = "Tiene un descuento del 15% ";
+            descuento = 15;
+            break;
+            default:
+            mensaje = "Introduzca un número entero ";
+            break;
+        }
+       var total = (compra * descuento) / 100;
+       alert(mensaje + compra + " El total a pagar es: " + total);
+    </script>
+
+    <p id="resultado"></p>
+</body>
+</html>

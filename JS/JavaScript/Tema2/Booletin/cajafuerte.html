@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Caja fuerte</h2>
+    Contraseña: <input type="text" id="pass">
+    <button type="button" onclick="comprobarContraseña()">Comprobar</button>
+
+    <script>
+        const contraseña = "1234";
+        var intentos = 3;
+        let bloqueo = false;
+        function comprobarContraseña() {
+            var pass = document.getElementById('pass').value;
+            if (bloqueo) {
+                alert("La caja fuerte está bloqueada.");
+                return;
+            }
+
+            if (pass === contraseña) {
+                alert("Contraseña correcta!");
+            } else {
+                intentos--;
+                if (intentos === 0) {
+                    bloqueo = true;
+                    alert("No tienes más intentos la caja fuerte está bloqueada.")
+                } else {
+                    alert("Contraseña incorrecta. Te quedan " + intentos + " intentos.");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

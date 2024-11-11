@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo">Esto es un párrafo</p>
+    <input type="submit" id="boton1" value="Amarillo" onclick="color('yellow')">
+    <input type="submit" id="boton2" value="Rojo" onclick="color('red')">
+    <input type="submit" id="boton1" value="Black" onclick="color('black')">
+    <script>
+
+        /*
+            Escribe script que contenga un párrafo y 5 botones
+            Cada uno de los botones debe tener como etiqueta el nombre de un color y al pulsarlo pondrá el color que sea
+        */
+
+        function color(colorBTN)
+        {
+            document.getElementById("parrafo").style.color = colorBTN;
+        }
+
+    </script>
+</body>
+</html>

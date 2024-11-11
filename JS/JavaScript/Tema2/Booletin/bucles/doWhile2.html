@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero1, numero2, repite;
+
+        do {
+            numero1 = parseInt(prompt("Primer número:"));
+            numero2 = parseInt(prompt("Segundo número:"));
+            alert("La suma es " + (numero1 + numero2));
+
+            // Preguntar si quiere repetir
+            do {
+                repite = prompt("¿Quiere repetir? (S/N)").toUpperCase();
+            } while (repite !== 'S' && repite !== 'N');
+            
+        } while (repite === 'S');
+    </script>
+</body>
+</html>

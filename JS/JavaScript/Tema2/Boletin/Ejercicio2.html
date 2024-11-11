@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar imagen</title>
+</head>
+<body>
+    <section style="width:100%; text-align: center">
+        <input type="button" id="miimagen" value="Cambiar imagen">
+        <br>
+        <br>
+        <img id="imagen" src="./../../img/a.jpg">
+
+        <script>
+            var boton=document.getElementById('miimagen');
+            boton.addEventListener("click", cambiarimagen,false);
+            function cambiarimagen()
+            {
+                var imagen_cambio = document.getElementById('imagen');
+                if (imagen_cambio.src.match('a.jpg')){
+                    imagen_cambio.src = "./../../img/b.jpg"
+                }else if(imagen_cambio.src.match('b.jpg')){
+                    imagen_cambio.src = "./../../img/c.jpg";
+                }else if(imagen_cambio.src.match('c.jpg')){
+                    imagen_cambio.src = "./../../img/d.jpg";
+                }else{
+                    imagen_cambio.src = "./../../img/a.jpg";
+                }
+            }
+        </script>
+    </section>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .contenedor{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 20px;
+            
+        }
+        .tarjeta{
+            display:flex;
+            flex-direction: column;
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            box-shadow: 0px 0px 7px 8px rgb(227, 224, 224);
+            font-size: 10px;
+        }
+        .tarjeta_centro{
+            display:flex;
+            flex-direction: column;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            box-shadow: 0px 0px 7px 8px rgb(227, 224, 224);
+            font-size: 10px;
+        }
+        .cuerpo{
+            flex: 4;
+        }
+        .titulo{
+            flex: 1;
+            background: black;
+            display: flex;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+        .pie{
+            flex: 1;
+            background: rgb(179, 241, 179);
+            display: flex;
+            /* Vertical */
+            align-items: center;
+            /* Horizontal */
+            justify-content: center;
+        }
+    </style>
+    <div class="contenedor">
+    <div class="tarjeta">
+        <div class="titulo"><h2>Tarjeta de la izquierda</h2></div>
+        <div class="cuerpo"><b>Contenido del cuerpo de la tarjeta</b></div>
+        <div class="pie"><h4>Pie de la tarjeta</h4></div>
+    </div>
+    <div class="tarjeta_centro">
+        <div class="titulo"><h2>Tarjeta centro</h2></div>
+        <div class="cuerpo"><b>Contenido del cuerpo de la tarjeta</b></div>
+        <div class="pie"><h4>Pie de la tarjeta</h4></div>
+    </div>
+    <div class="tarjeta">
+        <div class="titulo"><h2>Tarjeta de la derecha</h2></div>
+        <div class="cuerpo"><b>Contenido del cuerpo de la tarjeta</b></div>
+        <div class="pie"><h4>Pie de la tarjeta</h4></div>
+    </div>
+</div>
+
+</body>
+</html>

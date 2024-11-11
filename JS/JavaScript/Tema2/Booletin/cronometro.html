@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro Reversa</title>
+    <style>
+        body {
+            background-color: #4B4B4B;
+            color: #FFFFFF;
+        }
+
+        .container {
+            text-align: center;
+            padding: 5px;
+        }
+
+        .inicio {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .pausa {
+            background-color: #FFA500;
+            color: white;
+        }
+
+        .reiniciar {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        .resetear {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .cambio:hover{
+            border-color: white;
+            color: black;
+        }
+
+        .input{
+           text-align: center;
+           background-color: burlywood;
+           color: beige;
+           font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <input type="text" id="hora" placeholder="HH" value="00" maxlength="2" class="cambio input"> :
+            <input type="text" id="minuto" placeholder="MM" value="00" maxlength="2" class="cambio input"> :
+            <input type="text" id="segundo" placeholder="SS" value="00" maxlength="2" class="cambio input"> :
+            <input type="text" id="milisegundo" placeholder="MS" value="00" maxlength="2" class="cambio input">
+        </div>
+        <div class="container">
+            <input type="button" value="Iniciar &#9658;" onclick="inicio()" class="cambio inicio">
+            <input type="button" value="Pausar &#8718;" onclick="pausa()" class="cambio pausa">
+            <input type="button" value="Reiniciar &#8635;" onclick="reinicio()" class="cambio reiniciar">
+            <input type="button" value="Resetear" onclick="reseteo()" class="cambio resetear">
+        </div>
+    </div>
+
+    <script>
+        var Husu = document.getElementById("hora");
+        var Musu = document.getElementById("minuto");
+        var Susu = document.getElementById("segundo");
+        var MSusu = document.getElementById("milisegundo");
+
+        var horaGuardada = "00";
+        var minutoGuardada = "00";
+        var segundoGuardada = "00";
+        var milisegundoGuardada = "00";
+
+        var cronometro;
+
+        function inicio() {
+            if (Husu.value === "" && Musu.value === "" && Susu.value === "" && MSusu.value === "") {
+                alert("Por favor, ingrese un tiempo válido antes de iniciar el cronómetro.");
+                return;
+            }
+            guardarHora();
+            cronometro = setInterval(actualizarCronometro, 10);
+        }
+
+        function pausa() {
+            clearInterval(cronometro);
+        }
+
+        function reinicio() {
+            pausa();
+            Husu.value = horaGuardada;
+            Musu.value = minutoGuardada;
+            Susu.value = segundoGuardada;
+            MSusu.value = milisegundoGuardada;
+        }
+
+        function reseteo() {
+            pausa();
+            Husu.value = "00";
+            Musu.value = "00";
+            Susu.value = "00";
+            MSusu.value = "00";
+        }
+
+        function guardarHora() {
+            horaGuardada = Husu.value || "00";
+            minutoGuardada = Musu.value || "00";
+            segundoGuardada = Susu.value || "00";
+            milisegundoGuardada = MSusu.value || "00";
+        }
+
+        function actualizarCronometro() {
+            var ms = parseInt(MSusu.value) || 0;
+            var s = parseInt(Susu.value) || 0;
+            var m = parseInt(Musu.value) || 0;
+            var h = parseInt(Husu.value) || 0;
+
+            if (ms > 0) {
+                ms--;
+            } else {
+                if (s > 0) {
+                    s--;
+                    ms = 99; // Reiniciar milisegundos
+                } else {
+                    if (m > 0) {
+                        m--;
+                        s = 59; // Reiniciar segundos
+                        ms = 99; // Reiniciar milisegundos
+                    } else {
+                        if (h > 0) {
+                            h--;
+                            m = 59; // Reiniciar minutos
+                            s = 59; // Reiniciar segundos
+                            ms = 99; // Reiniciar milisegundos
+                        } else {
+                            // Detener el cronómetro cuando llegue a cero
+                            clearInterval(cronometro);
+                            alert("El tiempo ha terminado");
+                            return;
+                        }
+                    }
+                }
+            }
+
+            // Asegurarse de que los valores siempre tengan el formato correcto
+            MSusu.value = (ms < 10 ? "0" : "") + ms;
+            Susu.value = (s < 10 ? "0" : "") + s;
+            Musu.value = (m < 10 ? "0" : "") + m;
+            Husu.value = (h < 10 ? "0" : "") + h;
+        }
+    </script>
+</body>
+</html>

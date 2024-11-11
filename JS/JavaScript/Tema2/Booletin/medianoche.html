@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Segundos hasta la media noche</h2>
+    Hora: <input type="number" id="hora"><br><br>
+    Minutos: <input type="number" id="minutos">
+    <button type="button" onclick="calcularSegundos()">Calcular segundos</button>
+    <h3 id="resultado"></h3>
+
+    <script>
+        function calcularSegundos(){
+
+            // Obtenemos los valores
+
+            var hora = document.getElementById('hora').value;
+            var minutos = document.getElementById('minutos').value;
+
+            var segundosTranscurridos = (hora * 60 * 60) + (minutos * 60);
+
+            var segundosDia = (24 * 60 * 60);
+            
+            var segundosRestantes = segundosDia - segundosTranscurridos;
+
+            document.getElementById('resultado').innerHTML = "Faltan " + segundosRestantes;
+        }
+    </script>
+</body>
+</html>

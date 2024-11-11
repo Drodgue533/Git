@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let dia = Number(prompt("Dame el día: "));
+        let mes = Number(prompt("Dame el mes: "));
+        let anio = Number(prompt("Dame el año: "));
+        let fecha = new Date(anio + "/" + mes + "/" + dia);
+        console.log(fecha);
+        // Te da el día en fecha actual
+        let diaEnNum = fecha.getUTCDay();
+
+        console.log(diaEnNum);
+
+        const diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+        let diaSemana = diasSemana[diaEnNum];
+
+        console.log(diaSemana);
+
+        docuemnt.write(`<h1>Hoy es ${dia} de ${mes} de ${anio} y es ${diaSemana}</h1>`);
+    </script>
+
+</body>
+</html>

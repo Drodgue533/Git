@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            list-style: none;
+            padding: 0px;
+        }
+        ul li{
+            width: 100px;
+            border-bottom: solid 1px black;
+
+        }
+        ul a, ul a:link{
+            text-decoration: none;
+            font-family: sans-serif;
+            color: black;
+            display: block;
+        }
+        .main{
+            display: flex;
+            padding: 2px;
+            min-height: 100vh;
+            gap: 2px;    
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .sidebar{
+            background-color: rgb(96, 96, 242);
+            padding: 10px;          
+        }
+        .contenido{
+            background-color: green;
+            flex: 1; 
+            padding: 10px;
+        }
+        .sidebar p, .contenido p {
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#"></a>Home</li>
+                <li><a href="#"></a>Servicios</li>
+                <li><a href="#"></a>Opciones</li>
+                <li><a href="#"></a>Planes</li>
+                <li><a href="#"></a>Contacto</li>
+            </ul>
+        </div>
+        <div class="contenido">
+            Esto sería el contenido principal
+        </div>
+    </div>
+</body>
+</html>

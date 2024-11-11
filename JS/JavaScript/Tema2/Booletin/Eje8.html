@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        /*
+        En un restaurante los clientes pueden pedir menú de carne, pescado o verdura. Si pide carne se le ofrecerá
+como bebida vino tinto, si pide pescado se le ofrecerá vino blanco y si pide verdura se le ofrecerá agua. Si
+no elije el menú de la lista aparecerá la frase elija carne, pescado o verdura
+*/
+        
+function elegirMenu() {
+    var bebida;
+    var eleccionCorrecta = false; // Bandera para controlar el bucle
+
+    while (!eleccionCorrecta) {
+        var menu = prompt("Elija: carne, pescado o verdura");
+
+        switch(menu) {
+            case 'carne':
+                bebida = "Se recomienda vino tinto con la carne.";
+                eleccionCorrecta = true; // Elección válida
+                break;
+            case 'pescado':
+                bebida = "Se recomienda vino blanco con el pescado.";
+                eleccionCorrecta = true; // Elección válida
+                break;
+            case 'verdura':
+                bebida = "Se recomienda agua con la verdura.";
+                eleccionCorrecta = true; // Elección válida
+                break;
+            default:
+                alert("Por favor, elija entre 'carne', 'pescado' o 'verdura'.");
+                break; // Se vuelve a pedir la elección
+        }
+    }
+
+    alert(bebida); // Mostrar la bebida recomendada
+}
+
+elegirMenu(); // Llamar a la función
+    </script>
+</body>
+</html>

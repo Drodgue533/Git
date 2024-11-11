@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nombres = ["pepe", "lui", "pepa", "jose", "josefa", "paula"];
+        let noencontrado = true;
+        while (noencontrado && nombres.length > 0) {
+        if (nombres[0] === "jose") {
+        console.log("Encontrado");
+        noencontrado = false;
+        } else {
+        nombres.shift();
+        }
+        }
+    </script>
+</body>
+</html>

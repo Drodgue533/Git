@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        11. Programa un script que pida al usuario que teclee 4 números (uno cada vez). Con esos números el
+programa deberá calcular la media aritmética. O sea la suma de los 4 números dividida entre 4.
+*/
+        var num1,num2,num3,num4;
+
+        num1 = parseFloat(prompt("Introduce el primer número: "));
+        num2 = parseFloat(prompt("Introduce el segundo número: "));
+        num3 = parseFloat(prompt("Introduce el tercer número: "));
+        num4 = parseFloat(prompt("Introduce el cuarto número: "));
+        
+        function media(nu1,nu2,nu3,nu4){
+            let resultado = (nu1 + nu2 + nu3 + nu4)/4;
+            return resultado;
+        }
+        alert("La media de los 4 números es: " + media(num1,num2,num3,num4));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Arrays iniciales
+        let valores = [22, 9, 60, 12, 4, 56];
+        let valores2 = [6, 6, 6, 6, 6, 6];
+
+        // 1. Uso del método some
+        // Verifica si algún elemento del array es mayor o igual a 34
+        let prueba = valores.some((valor) => valor >= 34);
+        console.log(prueba); // true, porque 60 es mayor o igual a 34
+
+        // Usando una función predicado para mayor claridad y reutilización
+        const predicado = (valor) => valor >= 34;
+        console.log(valores.some(predicado)); // true
+
+        // Verifica si algún elemento del array es igual a 6
+        const iguales = (valor) => valor === 6;
+        let iguiguales = valores.some(iguales);
+        console.log(iguiguales); // false, porque ningún elemento es igual a 6
+
+        // 2. Uso del método every
+        // Verifica si todos los elementos del array son iguales a 6
+        let igu = valores2.every(iguales);
+        console.log(igu); // true, porque todos los valores son 6
+
+        // 3. Uso del método map
+        // Crea un nuevo array evaluando si cada elemento es mayor o igual a 9
+        const vmayor9 = (valor) => valor >= 9;
+        const array9 = valores.map(vmayor9);
+        console.log(array9); // [true, true, true, true, false, true]
+
+        // Ejemplo incorrecto: intenta acceder a length de un número
+        const vmayor10 = (valor) => valor.length;
+        const array10 = valores.map(vmayor10);
+        console.log(array10); // Error: los números no tienen propiedad length
+
+        // Crea un array con el tamaño (número de caracteres) de cada nombre
+        const nombres = ["Pepe", "Juaky", "Judith", "Pancracio", "Heriberto"];
+        let predicado1 = (valor) => valor.length;
+        let vnombresTamaño = nombres.map(predicado1);
+        console.log(vnombresTamaño); // [4, 5, 6, 9, 9]
+
+        // 4. Uso del método filter
+        // Filtra los nombres que comienzan con la letra "J"
+        let predicado2 = (nombre) => nombre.startsWith("J");
+        let filtros = nombres.filter(predicado2);
+        console.log(filtros); // ["Juaky", "Judith"]
+
+        // 5. Uso del método find
+        // Encuentra el primer nombre con 6 o más caracteres
+
+        const nombres2 = ["Pepe", "Juaky", "Judith", "Pancracio", "He"];
+
+        let busco = (elemento) => elemento.length >= 6;
+        let find = nombres2.find(busco);
+        console.log(find); // "Judith"
+
+        // 6. Uso del método findIndex
+        // Encuentra el índice del primer nombre con 6 o más caracteres
+        let dos = nombres2.findIndex(busco);
+        console.log(dos); // 2 (índice de "Judith")
+
+        // 7. Uso del método findLast
+        // Encuentra el último nombre con 6 o más caracteres
+        console.log(nombres2.findLast(busco)); // "Pancracio"
+
+        // 8. Uso del método findLastIndex
+        // Encuentra el índice del último nombre con 6 o más caracteres
+
+        console.log(nombres2.findLastIndex(busco)); // 3 (índice de "Pancracio")
+
+        let mensajes=[
+        {
+            id:1,
+            titulo:"Mi JS",
+            tags:["java", "js", "php"],
+            url:"http://uno.es",
+        },
+        {
+            id:2,
+            titulo:"JavaScript",
+            tags:["java", "js", "Visual"],
+            url:"http://uno.es",
+        },
+        {
+            id:3,
+            titulo:"Angular",
+            tags:["java","Angular", "React"],
+            url:"http://uno.es",
+        },
+        {
+            id:1,
+            titulo:"Mi JS",
+            tags:["php"],
+            url:"http://uno.es",
+        },
+    ];
+
+       // ¿Algún mensaje cuyo título sea Angular?
+
+       // Función de búsqueda para encontrar un libro con el título "Angular"
+let busqueda = (mensaje) => mensaje.titulo == "Angular";
+let libro_buscado = mensajes.find(busqueda); // Busca el primer libro cuyo título sea "Angular"
+console.log(libro_buscado.id, libro_buscado.titulo, libro_buscado.url, libro_buscado.tags); // Imprime las propiedades del libro encontrado
+
+// Itera sobre los tags del libro encontrado y los imprime
+libro_buscado.tags.forEach((valor) => {
+    console.log(valor);
+});
+
+// Función de búsqueda para verificar si algún tag es "java"
+let busqueda2 = (valor) => valor == "java";
+let libro_buscado2 = libro_buscado.tags.some(busqueda2); // Verifica si algún tag del libro coincide con "java"
+console.log(libro_buscado2); // Imprime true si encuentra "java", false de lo contrario
+
+// Verifica si algún tag del libro es "powershell"
+let libro_buscado3 = libro_buscado.tags.includes("powershell");
+console.log(libro_buscado3); // Imprime true si "powershell" está en los tags, false de lo contrario
+
+// Verifica si algún tag del libro es "react"
+let libro_buscado4 = libro_buscado.tags.includes("react");
+console.log(libro_buscado4); // Imprime true si "react" está en los tags, false de lo contrario
+
+// Verifica si todos los libros tienen "react" en sus tags
+let libro_buscado5 = mensajes.every(mensaje => mensaje.tags.includes("react"));  
+console.log(libro_buscado5); // Imprime true si todos los libros tienen "react" en sus tags, false de lo contrario
+
+// Verifica si al menos un libro tiene "react" en sus tags
+let libro_buscado6 = mensajes.some(valor => valor.tags.includes("react"));
+
+// Mapea todos los títulos de los libros en un nuevo arreglo
+let titulos = mensajes.map(valor => valor.titulo);
+console.log(titulos); // Imprime el arreglo de títulos de los libros
+
+// Filtra los libros que tienen "react" en sus tags (sin guardar el resultado)
+mensajes.filter(mensaje => mensaje.tags.includes("react"));
+
+// Filtra los libros que tienen un ID definido (sin guardar el resultado)
+mensajes.filter(mensaje => mensaje.id != undefined);
+
+// Acumula todos los tags en un arreglo
+var acumTags = [];
+var variable = mensajes.reduce((acumTags, mensaje) => {
+    return [...acumTags, ...mensaje.tags]; // Combina todos los tags en un solo arreglo
+}, []);
+console.log(variable); // Imprime el arreglo con todos los tags
+
+// Combina todos los tags en un arreglo eliminando duplicados
+mensajes.reduce((todosTags, mensaje) => {
+    return Array.from(new Set([...todosTags, mensaje.tags])); // Convierte a Set para eliminar duplicados
+}, []);
+
+console.log(prueba3); // Esto dará error porque "prueba3" no está definida
+
+// Combina todos los tags en un arreglo eliminando duplicados correctamente
+var prueba2 = mensajes.reduce((todosTags2, mensaje) => {
+    return [...todosTags2, ...mensaje.tags]; // Combina todos los tags en un solo arreglo
+}, []).filter((mensaje, indice, yomismo) => indice == yomismo.indexOf(mensaje)); // Filtra duplicados
+
+console.log(prueba2); // Imprime el arreglo de tags únicos
+
+
+    </script>
+</body>
+</html>

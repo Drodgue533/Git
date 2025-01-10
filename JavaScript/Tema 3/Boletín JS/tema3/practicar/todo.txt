@@ -1,0 +1,208 @@
+//fechas
+const fecha = new Date(); // Fecha actual
+
+console.log(fecha.getDay()); // Día de la semana (0-6, donde 0 es domingo)
+console.log(fecha.getFullYear()); // Año completo (por ejemplo, 2024)
+console.log(fecha.getMonth()); // Mes (0-11, donde 0 es enero)
+console.log(fecha.getDate()); // Día del mes (1-31)
+console.log(fecha.getHours()); // Hora (0-23)
+console.log(fecha.getMinutes()); // Minutos (0-59)
+console.log(fecha.getSeconds()); // Segundos (0-59)
+console.log(fecha.getMilliseconds()); // Milisegundos (0-999)
+console.log(fecha.getTime()); // Milisegundos desde el 1 de enero de 1970
+
+//setTimeOut y setInterval
+// setTimeout: Ejecuta una función después de un tiempo determinado
+function saludo(nombre) {
+    console.log(`Hola, ${nombre}`);
+}
+setTimeout(saludo, 2000, "Juan"); // Ejecuta después de 2 segundos
+
+// setInterval: Ejecuta una función repetidamente con un intervalo fijo
+let contador = 0;
+const intervalo = setInterval(() => {
+    contador++;
+    console.log(`Contador: ${contador}`);
+    if (contador === 5) clearInterval(intervalo); // Detiene el intervalo al llegar a 5
+}, 1000);
+
+//Arrays
+const array = [1, 2, 3, 4, 5];
+
+// reverse(): Invierte el orden de los elementos
+console.log(array.reverse()); // [5, 4, 3, 2, 1]
+
+// toReversed(): Devuelve una copia invertida sin modificar el original
+console.log(array.toReversed()); // [5, 4, 3, 2, 1]
+
+// sort(): Ordena los elementos alfabéticamente o según una función de comparación
+console.log(array.sort((a, b) => a - b)); // [1, 2, 3, 4, 5]
+
+// toSorted(): Devuelve una copia ordenada sin modificar el original
+console.log(array.toSorted((a, b) => b - a)); // [5, 4, 3, 2, 1]
+
+// forEach(): Itera sobre cada elemento del array
+array.forEach(item => console.log(item));
+
+const numeros = [1, 2, 3, 4, 5];
+
+// every(): Comprueba si todos los elementos cumplen una condición
+const todosPositivos = numeros.every(num => num > 0);
+console.log(todosPositivos); // true
+
+// some(): Comprueba si al menos un elemento cumple una condición
+const algunoMayorQueTres = numeros.some(num => num > 3);
+console.log(algunoMayorQueTres); // true
+
+// map(): Crea un nuevo array aplicando una función a cada elemento
+const dobles = numeros.map(num => num * 2);
+console.log(dobles); // [2, 4, 6, 8, 10]
+
+// filter(): Filtra los elementos que cumplen una condición
+const pares = numeros.filter(num => num % 2 === 0);
+console.log(pares); // [2, 4]
+
+// findIndex(): Devuelve el índice del primer elemento que cumple una condición
+const indiceMayorQueTres = numeros.findIndex(num => num > 3);
+console.log(indiceMayorQueTres); // 3
+
+// find(): Devuelve el primer elemento que cumple una condición
+const primerMayorQueTres = numeros.find(num => num > 3);
+console.log(primerMayorQueTres); // 4
+
+// findLastIndex(): Devuelve el índice del último elemento que cumple una condición
+const ultimoIndiceMenorQueCuatro = numeros.findLastIndex(num => num < 4);
+console.log(ultimoIndiceMenorQueCuatro); // 2
+
+// findLast(): Devuelve el último elemento que cumple una condición
+const ultimoMenorQueCuatro = numeros.findLast(num => num < 4);
+console.log(ultimoMenorQueCuatro); // 3
+
+/*Set y Map*/
+//set
+const set = new Set([1, 2]);
+
+set.add(3); // Añade un valor al conjunto
+set.delete(2); // Elimina un valor del conjunto
+set.clear(); // Vacía el conjunto
+
+// Métodos de Set
+console.log(set.size); // Número de elementos en el set.
+set.add(5); // Añade un elemento.
+console.log(set.has(1)); // true (comprueba si existe un valor).
+set.delete(5); // Elimina un valor.
+set.clear(); // Vacía el conjunto.
+
+//Uniones array
+// Definir conjuntos A y B
+const setA = new Set([1, 2, 3]);
+const setB = new Set([3, 4, 5]);
+
+// INNER JOIN (Intersección entre A y B)
+const innerJoin = new Set([...setA].filter(x => setB.has(x))); // {3}
+
+// LEFT JOIN (Elementos de A con los de B, incluye aquellos de A sin coincidencia en B)
+const leftJoin = new Set([...setA].filter(x => setB.has(x)).concat([...setA].filter(x => !setB.has(x)))); // {1, 2, 3}
+
+// RIGHT JOIN (Elementos de B con los de A, incluye aquellos de B sin coincidencia en A)
+const rightJoin = new Set([...setB].filter(x => setA.has(x)).concat([...setB].filter(x => !setA.has(x)))); // {3, 4, 5}
+
+// UNION (Unión de A y B sin duplicados)
+const union = new Set([...setA, ...setB]); // {1, 2, 3, 4, 5}
+
+console.log("INNER JOIN:", innerJoin); // {3}
+console.log("LEFT JOIN:", leftJoin);   // {1, 2, 3}
+console.log("RIGHT JOIN:", rightJoin); // {3, 4, 5}
+console.log("UNION:", union);          // {1, 2, 3, 4, 5}
+
+//Map
+const map = new Map([[1, "uno"], [2, "dos"], [3, "tres"]]); 
+
+// Métodos de Map
+map.set(4, "cuatro"); // Añade un par clave-valor.
+map.delete(2); // Elimina un par clave-valor.
+map.clear(); // Vacía el mapa.
+
+//Strings
+const str = "Hola Mundo";
+
+// Métodos básicos:
+console.log(str.charAt(1)); // "o"
+console.log(str.indexOf("Mundo")); // Primera posición: 5
+console.log(str.lastIndexOf("o")); // Última posición: 9
+
+// Transformación:
+console.log(str.toUpperCase()); // "HOLA MUNDO"
+console.log(str.toLowerCase()); // "hola mundo"
+
+// Reemplazo:
+console.log(str.replace("Mundo", "JavaScript")); // "Hola JavaScript"
+
+// Separación y búsqueda:
+console.log(str.split(" ")); // ["Hola", "Mundo"]
+console.log(str.startsWith("Hola")); // true
+console.log(str.endsWith("Mundo")); // true
+
+/*Cookies y LocalStorage*/
+//cookies
+// Crear una cookie:
+document.cookie = "usuario=pepe; expires=Fri, 31 Dec 2025; path=/";
+
+// Leer cookies:
+function obtenerCookie(nombre) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        if (cookie.trim().startsWith(nombre + '=')) {
+            return cookie.split('=')[1];
+        }
+    }
+    return null;
+}
+
+// Borrar cookies:
+document.cookie = "usuario=; expires=Thu,01 Jan 1970; path=/;";
+
+//localStorage
+// Guardar datos:
+localStorage.setItem("usuario", "pepe");
+localStorage.setItem("edad", "25");
+
+// Recuperar datos:
+const usuario = localStorage.getItem("usuario");
+const edad = localStorage.getItem("edad");
+
+// Borrar datos:
+localStorage.removeItem("usuario");
+localStorage.clear(); 
+
+/*Objetos*/
+// Usando literal de objeto:
+let coche = { modelo: "Kia", color: "rojo", motor: "1200" };
+
+// Usando constructor:
+function Coche(modelo, color) {
+    this.modelo = modelo;
+    this.color = color;
+}
+
+let miCoche = new Coche("Ford", "azul");
+
+//acceder a propiedades objeto
+for (let propiedad in coche) {
+    console.log(`${propiedad}: ${coche[propiedad]}`);
+}
+
+/*Expresiones Regulares*/
+let texto = "Hola Mundo";
+
+// Testear coincidencias:
+let regex = /Mundo/;
+console.log(regex.test(texto)); // true
+
+// Buscar coincidencias:
+let coincidencias = texto.match(/o/g);
+console.log(coincidencias); // ["o", "o"]
+
+// Reemplazar texto usando regex:
+let nuevoTexto = texto.replace(/Mundo/, "JavaScript");
+console.log(nuevoTexto); // "Hola JavaScript"

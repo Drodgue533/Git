@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Numeros entre 5 y 10</p>
+    <input type="text" id="numero">
+    <button type="button" onclick="dale()">Comprueba</button>
+    <p id="mensaje"></p>
+    <script>
+
+        function dale()
+        {
+        const parrafo = document.getElementById("numero");
+        let numero = document.getElementById("numero").value;
+        const mensaje = document.getElementById("mensaje");
+        mensaje.innerHTML="";
+       
+        try{
+           
+            if (numero == "") throw "Esta vacío";
+            if (isNaN(numero)) throw "No es número"; // Comprobamos que es un número
+            numero = Number(numero);
+            if (numero <5) throw "No llegas";
+            if (numero > 10) throw "Está por encima";
+
+        }catch(err)
+        {
+            mensaje.innerHTML="Resultado: " + err;
+        }
+
+    }
+    </script>
+</body>
+</html>

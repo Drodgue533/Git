@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var estudiantes  = [
+            {nombre: "fran", calificaciones: [7,8,9]},
+            {nombre: "andres", calificaciones: [4,5,6]},
+            {nombre: "adrian", calificaciones: [7,8,5]},
+            {nombre: "claudia", calificaciones: [9,9,9]},
+        ];
+
+        //algun alumno sacado más que un 8
+        const estudiantesSobresalientes = estudiantes.filter(
+            estudiante => {
+                return estudiante.calificaciones.some(calificacion => calificacion >= 8)
+            }
+        );
+        console.log(estudiantesSobresalientes);
+
+        //sumar todas las calificaciones
+        /* const sumaCalificaciones = estudiantes.reduce((acumulador, estudiante) => 
+            acumulador + estudiante.calificaciones.reduce((suma, calificacion) => 
+                suma + calificacion, 0)
+                const media = number(toFixed(suma/calificaciones.length(), 2));
+                console.log(`Estudiante ${estudiante.nombre} tiene ${suma}`);
+
+        ,0);
+
+        console.log(sumaCalificaciones); */
+
+        //
+        const cursos = [
+            {nombre: "DWEC",  estudiantes: [{nombre: "lolo", calificaciones: [3,5,8]}]},
+            {nombre: "DIW",  estudiantes: ["juan", 'javi', 'lolo']},
+            {nombre: "HLC",  estudiantes: ["juan", 'lolo']},
+            {nombre: "DES",  estudiantes: ['javi', 'lolo']},
+        ];
+
+        //
+        const mayor3 = cursos.filter(curso => {
+            return curso.estudiantes.length >= 3;
+        });
+
+        console.log(mayor3);
+
+        const matriculados = cursos.filter((curso) => {
+            return curso.estudiantes.includes("lolo");
+        });
+
+        console.log(matriculados);
+    </script>
+</body>
+</html>

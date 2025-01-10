@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Pedimos el número
+
+        var numero = parseInt(prompt("Introduce el número: "));
+        var cuadrado = parseFloat(("Introduce su cuadrado: "));
+
+        function calcularCuadrado(numero){
+            return numero * numero;
+        }
+
+        var resultado = calcularCuadrado(numero);
+
+        if(cuadrado == resultado){
+            alert("Los cuadrados son iguales.");
+        }else{
+            alert("Los cuadrados no son iguales");
+        }
+    </script>
+</body>
+</html>

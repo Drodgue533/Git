@@ -1,0 +1,19 @@
+.text-box-primera {
+  background-color: rgba(51, 68, 68, 0.2);
+  color: #ffffbb;
+  border: 1px solid rgba(34, 153, 51, 0.2);
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.text-box-segunda {
+  background-color: rgba(255, 0, 0, 0.533);
+  color: rgb(113, 198, 106);
+  border: 1px solid rgba(40, 84, 158, 0.2);
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}/*# sourceMappingURL=estilos.css.map */

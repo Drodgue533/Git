@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     
+     //Array de numeros
+     let numeros = [3, 45, 6, 23, 11, 52];
+
+
+    //1. Sumar elementos de un array de numeros
+    //Definimos la función sumarElementos
+    let sumarElementos = (array) => {
+        return array.map(num => num).reduce((acum, actual) =>
+         acum + actual, 0);
+    };
+
+    // Llamamos a la función y mostramos la suma
+    let suma = sumarElementos(numeros);
+    console.log("La suma de los elementos es:", suma);
+
+
+
+    //2. Encontrar el numero mayor de un array
+    // Definimos la función numeroMayor
+    let numeroMayor = (array) => {
+        return array.reduce((mayor, actual) =>
+         (actual > mayor ? actual : mayor), array[0]);
+    };
+
+    // Llamamos a la función y mostramos el número mayor
+    let mayorNumero = numeroMayor(numeros);
+    console.log("El número mayor es:", mayorNumero);
+
+    //3. Filtras numeros pares y la funcion se llamara filtrarPares(array)
+    // Definimos la función filtrarPares
+    let filtrarPares = (array) => {
+        return array.filter(num =>
+         num % 2 === 0);
+    };
+
+    // Llamamos a la función y mostramos los números pares
+    let numerosPares = filtrarPares(numeros);
+    console.log("Los números pares son:", numerosPares);
+
+
+
+    //4. Filtras números primos
+    function esPrimo(numero){
+        if (numero<=1) return false; //Si numero es menor o igual a uno no entra en el for
+        if(numero <=3) return true; //Si numero es menor o igual a 3 tampoco entra en el for
+
+        for(let i=2; i<=numero-1; i++){
+            if(numero %i === 0) return false;
+        }
+        return true;
+    }
+    function filtarPrimos(array){
+        return array.filter(esPrimo);
+    }
+    //Llamos a la funcion y mostramos los números primos
+    const primos = filtarPrimos(numeros);
+    console.log("Numeros primos: ", primos);
+    
+
+
+    //5. Ordenar de mayor a menor
+    // Definimos la función ordenarNumeros
+    let ordenarNumeros = (array) => {
+        return array.sort((a, b) => a - b);
+    };
+
+    // Llamamos a la función y mostramos el array ordenado
+    let numerosOrdenados = ordenarNumeros(numeros);
+    console.log("Números ordenados de menor a mayor:", numerosOrdenados);
+
+
+
+    //6. Ordenar de mayor a menor sin modificar el array original
+    // Definimos la función ordenarNumerosSinModificar
+    let ordenarNumerosSinModificar = (array) => {
+        return [...array].sort((a, b) => b - a); 
+    };
+
+    // Llamamos a la función y mostramos el array ordenado
+    let numerosOrdenados2 = ordenarNumerosSinModificar(numeros);
+    console.log("Números ordenados de mayor a menor:", numerosOrdenados2);
+
+    // Verificamos que el array original no fue modificado
+    console.log("Array original:", numeros);
+
+
+    //7. Ordenar a partir de una posicion
+    function ordenarDesdePosicion(array, posicion) {
+    // Verificamos si la posición es válida
+    if (posicion < 0 || posicion >= array.length) {
+        return array.slice(); // Si no es válida, devolvemos una copia del array original
+    }
+
+    // Dividimos el array en dos partes, antes de la posición y desde la posición
+    const arrayInicial = array.slice(0, posicion);
+    const arrayOrdenar = array.slice(posicion);
+
+    // Ordenamos la segunda parte de menor a mayor
+    const parteOrdenada = arrayOrdenar.sort((a, b) => a - b);
+
+    // Concatenamos la parte inicial con la parte ordenada
+    return arrayInicial.concat(parteOrdenada);
+}
+
+    // Llamamos a la función con el array y la posición deseada
+    const posiciones = ordenarDesdePosicion(numeros, 4);
+
+    // Mostramos el resultado
+    console.log("Array original:", numeros);
+    console.log("Array ordenado desde la posición 4:", posiciones);
+
+
+
+
+    //PARTIENDO DE LA SIGUIENTE ESTRUCTURA DE DATOS
+
+    const productos=[
+        {nombre: "Producto 1", precio:10.99},
+        {nombre: "Producto 2", precio:5.50},
+        {nombre: "Producto 3", precio:12.00},
+        {nombre: "Producto 4", precio:7.75},
+        {nombre: "Producto 5", precio:3.99},
+    ];
+
+    //8. Calcular el precio total de todos los productos con la funcion calcularPrecioTotal(array)
+    // Definimos la función calcularPrecioTotal
+    let calcularPrecioTotal = (array) => {
+        return array.reduce((total, producto) => total + producto.precio, 0); // Sumamos los precios
+    };
+
+    // Llamamos a la función y mostramos el precio total
+    let precioTotal = calcularPrecioTotal(productos);
+    console.log("El precio total de todos los productos es:", precioTotal.toFixed(2));
+
+
+    //9.Filtrar productos por precio maximo que se le pasa a la funcion(function filtrarPrecioPorPrecioMaximo(array, precioMaximo))
+    // Definimos la función filtrarPorPrecioMaximo
+    function filtrarPorPrecioMaximo(array, precioMaximo) {
+        return array.filter(producto => producto.precio <= precioMaximo);
+    }
+
+    // Llamamos a la función con un precio máximo y mostramos los resultados
+    const productosFiltrados = filtrarPorPrecioMaximo(productos, 7.00);
+    console.log("Productos con precio menor o igual a 7.00:", productosFiltrados);
+    
+
+    //10. Ordenar productos por precio de menor a mayor
+    // Definimos la función ordenarPorPrecio
+    function ordenarPorPrecio(array) {
+        return array.slice().sort((a, b) => a.precio - b.precio);
+    }
+
+    // Llamamos a la función y mostramos los resultados
+    const productosOrdenados = ordenarPorPrecio(productos);
+    console.log("Productos ordenados por precio de menor a mayor:", productosOrdenados);
+
+
+    //11. Sacar la media de los productos
+    // Definimos la función calcularMediaPrecios
+    function calcularMediaPrecios(array) {
+        const total = array.reduce((acum, producto) => acum + producto.precio, 0); // Sumamos todos los precios
+        return total / array.length; // Dividimos por la cantidad de productos
+    }
+
+    // Llamamos a la función y mostramos la media de los precios
+    const mediaPrecios = calcularMediaPrecios(productos);
+    console.log("La media de los precios es:", mediaPrecios.toFixed(2));
+
+
+    //12.
+
+    const productos2=[
+        {nombre: "Producto 1", precio:10.99},
+        {nombre: "Producto 2", precio:5.50},
+        {nombre: "Producto 3", precio:12.00},
+        {nombre: "Producto 4", precio:7.75},
+        {nombre: "Producto 5", precio:3.99},
+    ];
+
+    const descuentos = [5, 2, 10, 1, 4]; // En porcentaje
+    const aumentos = [10, 5, 15, 20, 8]; // En porcentaje
+
+    // Función para añadir campos de descuento y aumento a los productos
+    function añadirCampos(array, campo1, campo2) {
+        return array.map((elemento, indice) => ({
+            ...elemento,
+            descuento: campo1[indice],
+            aumento: campo2[indice]
+        }));
+    }
+
+    // Llamamos a la función y obtenemos los nuevos productos
+    const nuevosProductos = añadirCampos(productos2, descuentos, aumentos);
+    console.log("Productos con descuentos y aumentos:", nuevosProductos);
+
+    // Función para calcular el precio final de un producto
+    function calculo(precio, aumento, descuento) {
+        const precioConAumento = precio + (precio * (aumento / 100)); // Aplicamos el aumento
+        const precioConDescuento = precio - (precio * (descuento / 100)); // Aplicamos el descuento
+        return precioConAumento - (precio - precioConDescuento); // Ajustamos el precio final
+    }
+
+    // Función para calcular los precios nuevos para cada producto
+    function calculaPreciosNuevos(array) {
+        return array.map(producto => ({
+            ...producto,
+            precioFinal: calculo(producto.precio, producto.aumento, producto.descuento)
+        }));
+    }
+
+    // Calculamos los precios finales
+    const productosConPreciosFinales = calculaPreciosNuevos(nuevosProductos);
+    console.log("Productos con precios finales:", productosConPreciosFinales);
+
+
+
+    //PARTIENDO DE LA SIGUIENTE ESTRUCTURA DE DATOS
+    
+    const alumnos = [
+        {
+          nombre: "Juaky Moreno",
+          matricula: "A001",
+          beca: true,
+          calificaciones: {
+            filosofia: [8, 7, 9],
+            matematicas: [7, 8, 7],
+            fisica: [9, 6, 8],
+            quimica: [6, 7, 7],
+          },
+        },
+        {
+          nombre: "Mari Guapa",
+          matricula: "A002",
+          beca: false,
+          calificaciones: {
+            filosofia: [6, 5, 7],
+            matematicas: [8, 9, 8],
+            fisica: [7, 8, 8],
+            quimica: [9, 8, 7],
+          },
+        },
+        {
+          nombre: "Carlos Vives",
+          matricula: "A003",
+          beca: true,
+          calificaciones: {
+            filosofia: [9, 8, 9],
+            matematicas: [6, 7, 7],
+            fisica: [8, 9, 8],
+            quimica: [7, 6, 7],
+          },
+        },
+      ];
+
+      function calificacionesTrimestre (asignatura){
+        const total = asignatura.reduce((acumulador,nota)=>
+        acumulador+nota
+        ,0);
+        return total/asignatura.length;
+      }
+      function calcularPromedioAsignaturas(calificaciones){
+        const asignaturas=Object.keys(calificaciones);
+        const promedios=asignaturas.map(asignatura=>
+            calificacionesTrimestre(calificaciones[asignatura])
+        )
+        console.log(promedios);
+        const promedioFinal = promedios.reduce((acumulador,nota)=>
+        acumulador+nota
+        ,0)
+        return promedioFinal/promedios.length;
+      }
+      const calificacionesJuaky = calcularPromedioAsignaturas(alumnos[0].calificaciones);
+      console.log(`Promedio de Juaky:" ${calificacionesJuaky}`);
+
+
+      //Filtras alumnos con beca
+    //   function alumnosBeca(){
+    //     return alumnos.filter(alumno => alumno,beca);
+    //   } 
+    //   console.log(alumnosBeca());
+
+
+    function ordenarPorNotas(array){
+        array.slice().sort((a,b) =>{
+            //b-a;
+            calcularPromedioAsignaturas(b.calificaciones)-
+            calcularPromedioAsignaturas(a.calificaciones)
+        });
+        
+    }
+    console.log(ordenarPorNotas(alumnos));
+    </script>
+</body>
+</html>

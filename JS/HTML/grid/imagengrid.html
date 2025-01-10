@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+        }
+        main{
+            display: grid;
+            grid-template-areas: 'a a a b'
+                                 'c d e b';
+            grid-template-columns: repeat(4,300px);
+            grid-template-rows: repeat(2,300px);
+            max-width: 100%;
+            margin: 0 auto;
+            grid-gap: 10px;
+            margin: 0 auto;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .a{
+            display: grid;
+            grid-area: a;
+            background-color: blue;
+        }
+        .b{
+            display: grid;
+            grid-area: b;
+            background-color: red;
+        }
+        .c{
+            display: grid;
+            grid-area: c;
+            background-color: green;
+        }
+        .d{
+            display: grid;
+            grid-area: d;
+            background-color: yellow;
+        }
+        .e{
+            display: grid;
+            grid-area: e;
+            background-color: blueviolet;
+        }
+
+    </style>
+    <main>
+        <div class="a">
+        <p>1</p>
+        </div>
+        <div class="b">
+            <p>2</p>
+        </div>
+        <div class="c">
+            <p>3</p>
+        </div>
+        <div class="d">
+            <p>4</p>
+        </div>
+        <div class="e">
+            <p>5</p>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludos</title>
+</head>
+<body>
+
+    <form action="#">
+        <label for="fecSal">Fecha: </label>
+        <input type="time" id="fecSal">
+        <input type="submit" id="btn1" onclick="comprobar()">
+    </form>
+    <h1 id="salida"></h1>
+    <script>
+        function comprobar(){
+            let fecha = document.getElementById("fecSal");
+            Saludar(fecha);
+        }
+
+        function Saludar(fecha){
+            console.log(typeof fecha, fecha.getTime);
+            fecha = parseInt(fecha.value);
+            console.log(typeof fecha, fecha);
+            if(fecha >= 6 && fecha < 12){
+                alert("Buenos Días");
+            } else if( fecha >= 12 && fecha < 21){
+                alert("Buenos Tardes");
+            } else {
+                alert("Buenas Noches");
+            }
+        }
+    </script>
+</body>
+</html>

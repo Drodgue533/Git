@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos en JavaScript</title>
+    <style>
+        /* Estilo básico para los elementos */
+        #elemento {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            border: 2px solid #000;
+        }
+        #input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+  <div id="elemento" onmouseover="cambiarColor('red')" onmouseout="restaurarColor()">
+    Pasa el ratón por aquí
+  </div>
+
+  <input type="text" id="input" onblur="perderFoco()" placeholder="Haz clic fuera para perder el foco">
+
+  <script>
+    // Función que cambia el color del div cuando el ratón pasa por encima
+
+    function cambiarColor(color){
+        document.getElementById('elemento').style.backgroundColor = color;
+    }
+
+    // Función que restaura el color original del div cuando el ratón sale
+
+    // Es importante poner el color entre comillas, pues de lo contrario lo tomara como una variable
+
+    function restaurarColor(){
+        document.getElementById('elemento').style.backgroundColor = "lightblue";
+    }
+
+    function perderFoco(){
+        alert("El campo de texto ha perdido el foco.");
+    }
+
+  </script>
+
+</body>
+</html>

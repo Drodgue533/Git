@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas y Horas</title>
+</head>
+<body onload="reloj()">
+<p id="reloj1" style="font-family: 'Courier New', Courier, monospace;font-size: 25px;">Hora actual</p>
+<div id="reloj_actual" style="font-size: 50px; font-weight: bold;"></div>
+<p id="reloj2" style="font-family: 'Courier New', Courier, monospace;font-size: 25px;">Queda para Los Alfajores</p>
+<div id="reloj_navidad" style="font-size: 50px;font-style: italic;font-weight: bold;"></div>
+<script>
+    function reloj(){
+
+        // Creamos la fecha actual
+       var actual = new Date();
+
+       // Cogemos las horas, minutos, segundos y año actual
+
+       var horas = actual.getHours();
+       var minutos = actual.getMinutes();
+       var segundos = actual.getSeconds();
+       var anioActual = actual.getFullYear();
+       
+       var navidad = new Date(anioActual,11,24,23,59,59);
+
+        // Comprobamos la diferencia entre navidad y la fecha actual
+
+       let diferencia = navidad - actual;
+
+        // Calculamos los segundos totales
+
+       const segundosTotales = Math.floor(diferencia/1000);
+       const minutosTotales = Math.floor(segundosTotales/60);
+       const horasTotales = Math.floor(minutosTotales/60);
+       const diasTotales = Math.floor(horasTotales/24);
+
+        // Guardamos en las variables los restos
+
+       const segundosDiferencia = segundosTotales%60;
+       const minutosDiferencia = minutosTotales%60;
+       const horasDiferencia = horasTotales%60;
+       const diasDiferencia = diasTotales;
+
+        horas = (horas<=9)?("0"+ horas):horas;
+        minutos = (minutos <=9)?("0"+ minutos):minutos;
+        segundos = (segundos <=9)?("0"+ segundos):segundos;
+
+        var hora_actual = horas + ":" + minutos + ":" + segundos;
+        var rel_navidad = "Quedan " + diasDiferencia + " Dias " + horasDiferencia + " Horas " + minutosDiferencia + " Minutos "  + segundosDiferencia + " Segundos";
+
+        document.getElementById('reloj_actual').innerHTML = hora_actual;
+        document.getElementById('reloj_navidad').innerHTML = rel_navidad;
+        setTimeout("reloj()",1000);
+    }
+</script>
+</body>
+</html>

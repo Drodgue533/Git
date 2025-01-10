@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="f1" onclick="cambiarfoto()" src="./../img/fali.jpg" width="130" height="180">
+    <p>Clickea para que la imagen cambie</p>
+    <button type="button" onclick="cambiarfoto()">Clikea</button>
+    <script>
+        function cambiarfoto() {
+            var imagen = document.getElementById('f1');
+            if (imagen.src.match("fali.jpg")) {
+                imagen.src = "./../img/aficionado.jpeg";
+            } else {
+                imagen.src = "./../img/fali.jpg";
+            }
+        }
+    </script>
+</body>
+</html>

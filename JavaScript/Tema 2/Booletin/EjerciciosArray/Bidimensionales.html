@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Creamos un array bidimensional de 2x3
+        var matriz = [
+            [1, 2, 3],  // Fila 0
+            [4, 5, 6]   // Fila 1
+        ];
+
+        console.log(matriz[1][1]);
+        console.log(matriz[1][2]);
+
+        // Cambiar el valor en la fila 1, columna 0
+        matriz[1][0] = 10;
+        console.log(matriz[1][0]); // Muestra: 10
+
+        for (var i = 0; i < matriz.length; i++) {
+            for (var j = 0; j < matriz[i].length; j++) {
+                console.log(matriz[i][j]); 
+            }
+        }
+
+    </script>
+</body>
+
+</html>

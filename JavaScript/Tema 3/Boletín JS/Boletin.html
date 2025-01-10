@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        numeros=[3,45,6,23,11,52];
+
+        // Ejercicio 1: Sumar Elementos de un Array de Números
+
+        function sumarElementos(array){
+           return array.reduce(
+              ((acumulador, numero) => acumulador + numero), 0);
+        }
+ 
+        console.log(sumarElementos(numeros));
+
+          // Ejercicio 2: Encontrar el Número Mayor en un Array
+
+        function numeroMayor(array){
+            return Math.max(...array);
+         }
+         console.log(numeroMayor(numeros));
+
+        // Ejercicio 3: Filtrar Números Pares
+
+        function filtrarPares(array){
+           return numeros.filter(numero => numero %2 == 0);
+        }
+        console.log(filtrarPares(numeros));
+
+        // Ejercicio 4: Filtrar Números Primos
+
+        function esPrimo(numero){
+            // Establecemos -1, porque el número no debe de ser divisible por otro número menor que el
+            for(let i = 2; i < numero - 1; i++){ 
+                if(numero % i === 0) return false;
+            }
+            return true;
+           
+        }
+        function filtrarPrimos(array)
+        {
+            return array.filter(esPrimo);
+        }
+
+        const primos=filtrarPrimos(numeros);
+
+        console.log(primos);
+        
+        // Ejercicio 5: Ordenar de menor a mayor
+
+        function ordenarNumeros(array)
+        {
+            return array.slice().sort((a,b)=> a-b)
+        }
+
+        const ordenados=ordenarNumeros(numeros);
+        
+        console.log(ordenados);
+
+        // Ejercicio 6: Ordenar de mayor a menor sin modificar el array original.
+
+        function ordenarNumerosSinModificar(array)
+        {
+            return array.sort((a,b) => a-b);
+        }
+
+        const ordenados2 = ordenarNumerosSinModificar(numeros);
+        console.log(ordenados2,numeros);
+
+        // Ejercicio 7: Ordenar a partir de una posición
+
+        function ordenarNumerosSinModificar(array, posicion){
+
+            if(posicion < 0 || posicion >= array.length){
+                return array.slice();    
+            }
+
+            const arrayInicial=array.slice(0,posicion);
+            const arrayOrdenar=array.slice(posicion);
+            const parteordenada = arrayOrdenar.sort((a,b)=> a-b);
+            return arrayInicial.concat(parteordenada);
+        }
+        const posiciones = ordenarNumerosSinModificar(numeros,2);
+        console.log(posiciones);
+        
+
+        const productos = [
+            {nombre: "Producto 1", precio: 10.99},
+            {nombre: "Producto 2", precio: 5.50},
+            {nombre: "Producto 3", precio: 12.00},
+            {nombre: "Producto 4", precio:7.75},
+            {nombre: "Producto 5", precio: 3.99}
+        ];
+       
+
+        // Ejercicio 8: Calcular el Precio Total de Todos los Productos
+
+        
+        function calcularPrecioTotal(array){
+            return array.reduce((acumulador, valor) => acumulador + valor.precio ,0);
+        }
+        console.log(calcularPrecioTotal(productos));
+        
+
+        // Ejercicio 9: Filtrar Productos por Precio Máximo que se le pasa a la función
+
+        function filtrarPorPrecioMaximo(array, maximo){
+            return array.filter(valor=> valor.precio <= maximo);
+        }
+        const preciopordebajo = filtrarPorPrecioMaximo(productos, 7.00);
+        console.log(preciopordebajo);
+      
+        // Ejercicio 10: Ordenar Productos por Precio de Menor a Mayor
+
+        function ordenarPorPrecio(array)
+        {
+            return array.slice().sort((a,b) => a.precio - b.precio);
+        }
+        console.log("Antes de ordenar:", productos);
+        const productosOrdenados = ordenarPorPrecio(productos);
+        console.log("Después de ordenar:", productosOrdenados);
+
+        // Ejercicio 11: Sacar la media de productos
+
+        function calcularMediaProductos(array)
+        {
+            const total = array.reduce((acumulador,producto) => acumulador + producto.precio, 0);
+            return total/array.length;
+        }
+        const media = calcularMediaProductos(productos);
+
+        console.log(`La media es: ${media.toFixed(2)}€uros`);
+
+        // Ejercicio 12: Si sabemos que el array_descuentos = [5,2,10,1,4], y otro llamado array_aumento = [10,5,15,20,8], agrege el campo a cada producto y calcule su precio final
+        const productos2 = [
+        {nombre: "Producto 1", precio: 10.99},
+        {nombre: "Producto 2", precio: 5.50},
+        {nombre: "Producto 3", precio: 12.00},
+        {nombre: "Producto 4", precio:7.75},
+        {nombre: "Producto 5", precio: 3.99}
+         ];
+
+        const descuentos = [5,2,10,1,4];
+        const aumento = [10,5,15,20,8];
+
+        function añadirCampos(array, campo1, campo2)
+        {
+            // Recibimos un array
+            // Dos campos a añadir
+            return array.map((elemento, indice) => ({...elemento, descuento:campo1[indice], aumento:campo2[indice]}));
+        }
+
+        const nuevosProductos = añadirCampos(productos2, descuentos, aumento);
+
+        console.log(nuevosProductos);
+
+        function calcularPreciosNuevos(arrays)
+        {
+            const nuevoPrecio =  arrays.map(producto =>producto.precio + ((producto.precio * producto.aumento)/100) - ((producto.precio * producto.descuento)/100));
+            const añadirPrecio = arrays.map((elemento, indice) => ({...elemento, nuevoPrecio:nuevoPrecio[indice].toFixed(2)}));
+            return añadirPrecio;
+        }
+
+        const preciosNuevos = calcularPreciosNuevos(nuevosProductos);
+
+        console.log(preciosNuevos);
+        // console.log(`Los nuevos precios son: ${}`)
+
+        const alumnos = [
+        {
+          nombre: "Juaky Moreno",
+          matricula: "A001",
+          beca: true,
+          calificaciones: {
+            filosofia: [8, 7, 9],
+            matematicas: [7, 8, 7],
+            fisica: [9, 6, 8],
+            quimica: [6, 7, 7],
+          },
+        },
+        {
+          nombre: "Mari Guapa",
+          matricula: "A002",
+          beca: false,
+          calificaciones: {
+            filosofia: [6, 5, 7],
+            matematicas: [8, 9, 8],
+            fisica: [7, 8, 8],
+            quimica: [9, 8, 7],
+          },
+        },
+        {
+          nombre: "Carlos Vives",
+          matricula: "A003",
+          beca: true,
+          calificaciones: {
+            filosofia: [9, 8, 9],
+            matematicas: [6, 7, 7],
+            fisica: [8, 9, 8],
+            quimica: [7, 6, 7],
+          },
+        },
+      ];
+
+
+      function calificacionesTrimestre (asignatura){
+        const total = asignatura.reduce((acumulador,nota)=>
+        acumulador+nota
+        ,0);
+        return total/asignatura.length;
+      }
+      function calcularPromedioAsignaturas(calificaciones){
+        const asignaturas=Object.keys(calificaciones);
+        const promedios=asignaturas.map(asignatura=>
+            calificacionesTrimestre(calificaciones[asignatura])
+        )
+        console.log(promedios);
+        const promedioFinal = promedios.reduce((acumulador,nota)=>
+        acumulador+nota
+        ,0)
+        return promedioFinal/promedios.length;
+      }
+      const calificacionesJuaky = calcularPromedioAsignaturas(alumnos[0].calificaciones);
+      console.log(`Promedio de Juaky:" ${calificacionesJuaky}`);
+
+
+      //Filtras alumnos con beca
+    //   function alumnosBeca(){
+    //     return alumnos.filter(alumno => alumno,beca);
+    //   } 
+    //   console.log(alumnosBeca());
+
+
+    function ordenarPorNotas(array){
+        array.slice().sort((a,b) =>{
+            //b-a;
+            calcularPromedioAsignaturas(b.calificaciones)-
+            calcularPromedioAsignaturas(a.calificaciones)
+        });
+        
+    }
+    console.log(ordenarPorNotas(alumnos));
+     
+
+    // Ejercicio 14: Ordenar Alumnas/os por Promedio de Calificaciones.
+
+    function calcularPromedioCalificaciones(calificaciones)
+    {
+        const asignaturas = Object.keys(calificaciones);
+        const promedios = asignaturas.map(asignatura => {
+            const total = calificaciones[asignatura].reduce((acumulador, nota) => acumulador + nota, 0);
+            return total / calificaciones[asignatura].length;
+        });
+        const promedioFinal = promedios.reduce((acumulador, promedio) => acumulador + promedio, 0);
+        return promedioFinal / promedios.length;
+    }
+    
+    function ordenarAlumnosPorPromedio(array)
+    {
+        return array.sort((a, b) => calcularPromedioCalificaciones(b.calificaciones) - calcularPromedioCalificaciones(a.calificaciones));
+    }
+    
+    const alumnosOrdenados = ordenarAlumnosPorPromedio(alumnos);
+    console.log(alumnosOrdenados);
+    
+    </script>
+</body>
+</html>

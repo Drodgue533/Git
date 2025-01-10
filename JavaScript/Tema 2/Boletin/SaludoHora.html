@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludar según la hora</title>
+</head>
+<body>
+    <h1>Saludar según la hora</h1>
+    <input type="date" id="fecha">
+    <button onclick="comprobar()">Comprobar</button>
+
+    <script>
+
+        function comprobar(){
+
+            const fecha_form = document.getElementById("fecha");
+            const milisegundos = fecha_form.valueAsNumber;
+
+            if(milisegundos){
+
+                // Convertir a date
+
+                const fecha = new Date(milisegundos);
+
+                //Obtener hora actual
+
+                const ahora = new Date();
+                const horas = ahora.getHours();
+                const minutos = ahora.getMinutes();
+
+                let mensaje = "";
+
+                if(horas >=6 && horas <12){
+                    mensaje = "Buenos días!";
+                }else if(horas >= 12 && horas < 21){
+                    mensaje = "Buenas tardes!";
+                }else{
+                    mensaje = "Buenas noches!";
+                }
+
+                alert(mensaje);
+            }else {
+                alert("Por favor, selecciona una fecha válida");
+            }
+
+        }
+
+    </script>
+</body>
+</html>

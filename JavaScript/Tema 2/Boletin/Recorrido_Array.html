@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorrido de un array</title>
+</head>
+<body>
+    <h3>Recorrido de un array</h3>
+    <p id="aqui"></p>
+    <script>
+        var txt="";
+        var txt2="";
+        var dias=["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+        // Recorrer array
+
+        dias.forEach(valores);
+
+        function valores(valor, index, array)
+        {
+            txt+=index + valor +"<br>";
+        }
+        document.getElementById("aqui").innerHTML+=txt+"<br>------------------------------<br>";
+       
+        let laborables = new Array();
+        let dias_laborables=["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+       dias_laborables.forEach(function (valor, index, array)
+       {
+        array[index]=valor.toUpperCase();
+        laborables.push(array[index].toLowerCase());
+       }
+       );
+       console.log(dias_laborables, laborables);
+
+       for(i=0; i<laborables.length; i++)
+
+       {
+        console.log(laborables[i]);
+       }
+
+       // Recorremos un array de meses
+
+       const meses=['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre','diciembre'];
+
+       // Opción 1.- La de toda la vida
+
+       for(let i=0; i<meses.length; i++)
+
+       {
+        console.log(meses[i]);
+       }
+
+       // Opción 2.- foreach-> valor,indice,array
+       // meses.foreach(recorrer);
+
+       meses.forEach(function(valor){console.log(valor);});
+       meses.forEach(function(valor,posicion){console.log(valor,posicion);});
+       meses.forEach(function(valor,indice,lista){console.log(valor,indice,lista[indice]);});
+
+       // Opción 3.- usando el for con in para acceder a los indices
+
+       for(const indice in meses)
+       {
+        console.log(meses[indice]);
+       }
+
+       // Opción 4.- con el for accediendo con of al valor
+
+       for(let valor of meses)
+       {
+        console.log(valor);
+       }
+
+    // No cae para el tema 2
+
+       var numeros = [2,5,6,8,10];
+       let pares=numeros.filter((val)=> val%2 ==0);
+       let impares=numeros.filter((val2) => val2%2 !=0);
+
+       console.log(pares);
+       console.log(impares);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const numeros = [10, 2, 3, 40, 33, 50];
+    const duplicar = valor => valor * 2;
+    const multipo10 = valor => valor % 10 === 0;
+    let espositivo = elemento => elemento >= 0;
+    let prueba = numeros.some(espositivo); // true
+    console.log(prueba);
+    let prueba2 = numeros.every(espositivo); // true
+    console.log(prueba2);
+    let prueba3 = numeros.every(multipo10); // false
+    console.log(prueba3);
+    let prueba4 = numeros.some(multipo10); // true
+    console.log(prueba4);
+    var multiplos = numeros.filter(multipo10); // 10, 40, 50
+    console.log(multiplos);
+    var multiplos2 = numeros.find(multipo10); // Envía el primer valor que cumpla con la condición
+    console.log(multiplos2);
+
+    let suma = numeros.reduce(
+      function (acumulador, numero) {
+        return acumulador + numero;
+      }
+      , 0);
+
+    let suma2 = numeros.reduce((acum, valor) => {
+      return acumulador + numero;
+    }
+      , 0);
+
+    console.log(suma);
+
+    const personas = [
+      { nombre: "Juan", edad: 25 },
+      { nombre: "María", edad: 30 },
+      { nombre: "Pedro", edad: 35 }
+    ];
+
+
+    // Cuantos años le quedan al personal a los 50
+
+    var jubilacion = personas.map(persona => 50 - persona.edad);
+    console.log(jubilacion);
+
+    // Juan tiene 25 años y le queda 40 para jubilarse
+
+    var descripciones_personas = personas.map(persona => {
+      return `${persona.nombre} tiene ${persona.edad} y le queda ${jubilacion} años`
+    });
+    console.log(descripciones_personas);
+
+    // Personas que empiecen por pepe
+
+    let predicado = personas => personas.nombre == "pepe";
+    let pepe = personas.filter(predicado);
+
+    var personasMayores = personas.map(persona => {
+      return {
+        nombre_nuevo: persona.nombre,
+        edad_nuevo: persona.edad,
+        mayor_nuevo: persona.edad >= 18,
+        color_nuevo: persona.nombre.toLowerCase(),
+      };
+    }
+    );
+
+    // Suma un año más,  a las personas
+
+    var aumentoedad = personas.map(persona => {
+      return {
+        ...persona,
+        edad: persona.edad + 1
+      };
+    }
+    );
+
+    // Un array con los nombres
+
+    var nombres = personas.map(persona => persona.nombre);
+    console.log(nombres);
+
+    // Un array con las fechas
+
+    var edad = personas.map(persona => persona.edad);
+    console.log(edad);
+
+    var segundo_daw = [
+      { nombre: 'fran', calificaciones: [7, 8, 9] },
+      { nombre: 'andres', calificaciones: [4, 5, 6] },
+      { nombre: 'adrian', calificaciones: [7, 8, 5] },
+      { nombre: 'claudia', calificaciones: [9, 9, 9] }
+    ];
+
+    let suspensos = segundo_daw.filter(estudiante =>
+      estudiante.calificaciones.some(valor => valor <= 4)
+    );
+
+    console.log(suspensos);
+
+    // Sacar por pantalla listado de la sigueinte forma
+    // Juan tiene 20 años
+
+    var descrip = personas.map(persona => {
+      return `${persona.nombre} tiene ${persona.edad} años.`
+    });
+    console.log(descrip);
+
+    var estudiantes = [
+      { nombre: 'fran', calificaciones: [7, 8, 9] },
+      { nombre: 'andres', calificaciones: [4, 5, 6] },
+      { nombre: 'adrian', calificaciones: [7, 8, 5] },
+      { nombre: 'claudia', calificaciones: [9, 9, 9] }
+    ];
+
+    // Hay algún alumno que haya sacado mas de un 9
+
+    const estudiantessobresalientes = estudiantes.filter(estudiante =>
+      estudiante.calificaciones.some(valor => valor >= 9)
+    );
+
+    const estudiantes_sobresalientes = estudiantes.filter(estudiante => {
+      return estudiante.calificaciones.some(valor => valor >= 9)
+    }
+    );
+
+    console.log(estudiantessobresalientes);
+    console.log(estudiantes_sobresalientes);
+
+    // Sumen todas las calificaciones
+
+    const suma_calificaciones = estudiantes.reduce((acumulador, estudiante) => {
+      // Sumar las calificaciones del estudiante actual
+      const suma = estudiante.calificaciones.reduce((suma, calificacion) =>
+          suma + calificacion, 0);
+      
+      // Calcular la media
+      const media = Number((suma / estudiante.calificaciones.length).toFixed(2));
+      
+      console.log(`Estudiante ${estudiante.nombre} tiene una suma de ${suma} y una media de ${media}`);
+      
+      // Acumular la suma total de calificaciones
+      return acumulador + suma;
+  }, 0);
+  
+  console.log(`La suma total de todas las calificaciones es ${suma_calificaciones}`);
+
+ console.log(suma_calificaciones);
+
+const cursos=[
+  {nombre:"DWEC",estudiantes:[{nombre:"lolo",calificaciones:[3,5,8]},{nombre:"manuel", calificaciones:[8,9,10]}]},
+  {nombre:"DIW",estudiantes:["juan","javi","lolo"]},
+  {nombre:"HLC",estudiantes:["juan","lolo"]},
+  {nombre:"DES",estudiantes:["javi","lolo"]},
+];
+
+  const Mayor3  =cursos.filter(curso => {
+    return curso.estudiantes.length>=3;
+  });
+
+  console.log(Mayor3);
+
+  // En que curso esta matriculado lolo
+
+  // Filter busca todas las coincidencias, find solo busca la primera coincidencia
+
+  const matriculados = cursos.filter((curso)=>{
+     return curso.estudiantes.includes("lolo");
+  }
+  );
+  console.log(matriculados);
+
+  // Obtener un listado de cada usuario y la media que tienen. Apto o no Apto
+
+  const media = cursos.map(curso => {
+    return {
+      asignatura: curso.nombre,
+      estudiante: curso.estudiantes,
+    };
+  });
+
+  console.log(media);
+    
+
+  
+  </script>
+</body>
+
+</html>

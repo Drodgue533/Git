@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let valores = [22, 9, 60, 12, 4, 56];
+        let valores2 = [6, 6, 6, 6, 6, 6];
+
+        // Algún valor que
+        
+        let prueba = valores.some((valor)=>valor>=34);
+        console.log(prueba);
+        console.log(valores.some((valor)=>valor>=34));
+
+        const predicado = (valor) =>valor>=34;
+        valores.some(predicado);
+        console.log(valores.some(predicado));
+
+        const iguales = (valor)=>valor === 6;
+        let iguiguales = valores.some(iguales);
+        let iguiguales2 = valores2.some(iguales);
+        console.log(iguiguales);
+        console.log(iguiguales2);
+
+        // Every todos los valores son...
+
+        let igu = valores2.every(iguales);
+        console.log(igu);
+
+        const vmayor9 = (valor)=>valor>=9;
+        const array9 = valores.map(vmayor9);
+
+        console.log(array9);
+
+        const vmayor10 = (valor)=>valor>=10;
+        const array10 = valores.map(vmayor10);
+
+        console.log(array10);
+        
+        const nombres = ["Pepe", "Juaky", "Judith", "Pancracio", "Heriberto"];
+
+        let predicado1 = (valor)=>valor.length;
+        let vnombresTamaño = nombres.map(predicado1);
+        console.log(vnombresTamaño);
+
+        // Filtramos
+
+        let predicado2 = (nombre)=>nombre.startsWith("J");
+        let filtros = nombres.filter(predicado2);
+
+        console.log(filtros);
+
+        // Búsquedas
+
+        const nombres2 = ["Pepe", "Juaky", "Judith", "Pancracio", "He"];
+        let busco = (elemento)=>elemento.length>=6;
+        let find = nombres2.find(busco);
+
+        console.log(find); // Devuelve Judith
+
+        let dos = nombres2.findIndex(busco);
+
+        console.log(dos); // Devuelve el índice
+
+        // Recorre de derecha a izquierda. Devuelve el último elemento
+
+        console.log(nombres2.findLast(busco)); 
+        
+        // Recorre de derecha a izquierda. Devuelve el índice del último elemento
+
+        console.log(nombres2.findLastIndex(busco));
+
+        let mensajes=[
+        {
+            id:1,
+            titulo:"Mi JS",
+            tags:["java", "js", "php"],
+            url:"http://uno.es",
+        },
+        {
+            id:2,
+            titulo:"JavaScript",
+            tags:["java", "js", "Visual"],
+            url:"http://uno.es",
+        },
+        {
+            id:3,
+            titulo:"Angular",
+            tags:["java","Angular", "react"],
+            url:"http://uno.es",
+        },
+        {
+            id:1,
+            titulo:"Mi JS",
+            tags:["php"],
+            url:"http://uno.es",
+        },
+    ];
+
+     // ¿Algún mensaje cuyo título sea Angular?
+
+     let busqueda = (mensaje)=>mensaje.titulo == "Angular";
+
+     let libro_buscado = mensajes.find(busqueda);
+
+     console.log(libro_buscado.id, libro_buscado.titulo, libro_buscado.url, libro_buscado.tags);
+
+    // Recorre los tags con un for each
+
+    libro_buscado.tags.forEach((valor)=>{console.log(valor)});
+
+    let busqueda2 = (valor)=>valor == "java";
+    let libro_buscado2 = libro_buscado.tags.some(predicado2);
+    console.log(libro_buscado2);
+
+    // let predicado2 = (nombre)=>nombre.startsWith("J");
+    // Da false, porque predicado solo busca mayúsculas y no minúsculas
+
+    let libro_buscado3 = libro_buscado.tags.includes("powershell");
+    console.log(libro_buscado3);
+    let libro_buscado4 = libro_buscado.tags.includes("React");
+    console.log(libro_buscado4);
+
+    // Todos los libros que tengan algo de react en sus tags
+
+    let libro_buscado5 = mensajes.every(mensaje=> mensaje.tags.includes("react"));
+
+    console.log(libro_buscado5);
+
+    let libro_buscado6 = mensajes.some(valor=>valor.tags.includes("react"));
+    
+    console.log(libro_buscado6);
+
+    let titulos = mensajes.map(valor=>valor.titulo);
+    console.log(titulos);
+
+    mensajes.filter(mensaje=> mensaje.tags.includes("react"));
+    mensajes.filter(mensaje=>mensaje.id !=undefined);
+    var acumTags=[];
+    var variable = mensajes.reduce((acumTags, mensaje)=>{return [...acumTags,...mensaje.tags]},[]);
+
+    console.log(variable);
+
+        mensajes.reduce((todosTags,mensaje)=>{
+
+            return Array.from(new Set ([...todosTags, mensaje.tags]))
+
+        }, []);
+
+        
+
+    </script>
+</body>
+</html>

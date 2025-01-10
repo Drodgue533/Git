@@ -1,0 +1,10 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 600px;
+}
+.boton{
+    width: 200px;
+    height: 200px;
+    
+}

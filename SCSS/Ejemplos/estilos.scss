@@ -1,0 +1,19 @@
+// Estilos que voy a aplicar
+@import 'variables';
+@import 'mixmin';
+body{
+    font-family: $fuente;
+    background-color: $primario-color;
+    color: azure;
+}
+button{
+    background-color: $secundario-color;
+    @include borde-redondo(20px);
+    @include transicion(all, 0.3s);
+    &:hover{    // Para hacer referencia al padre
+        background-color: darken($secundario-color, 10%);
+    }
+}
+div{
+    color: $secundario-color;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set y Map</title>
+</head>
+<body>
+    <script>
+        let valores = [22, 9, 60, 12, 4, 56];
+        //iterables son aquellos separados por comas
+        let maximo = Math.max(...valores);
+        let arr1 = [2, 3, 4 ,5];
+        let arr2 = [6, 7, 8, 9];
+        let copia = [...arr1];
+        console.log(copia);
+        let fibraarray = [0, 12, ...arr1, 43, "hola", ...arr2];
+        console.log(fibraarray);
+        //SET --> vector cuyos datos no se pueden repetir
+        let set = new Set();
+        let jose = {nombre: "Jose"};
+        let pedro = {nombre: "Pedro"};
+        let mari = {nombre: "Mari"};
+        set.add(jose);
+        set.add(pedro);
+        set.add(mari);
+        console.log(set);
+
+        for (let elemento of set){
+            console.log(elemento);
+        }
+        set.add(mari);
+        
+        set.forEach((elemento, valor, set) => {
+            console.log(elemento);
+            console.log(valor);
+            console.log(set);
+        });
+
+        console.log(set.size);
+
+        //Creación a partir de elementos
+        let frutas = new Set(["naranjas", "peras"]);
+        console.log(frutas);
+
+        //INTERSECCIÓN
+        const numericos1 = new Set([1, 2, 3, 4, 5]);
+        const numericos2 = new Set([4, 5, 6, 7, 8]);
+
+        const interseccion = [...numericos1].filter(elemento => numericos2.has(elemento));
+        console.log(interseccion);
+
+        //UNION
+        let union = new Set([...numericos1, ...numericos2]);
+        console.log(union);
+
+        //DIFERENCIA
+        const diferencia = [...numericos1].filter(elemento  => !numericos2.has(elemento));
+        console.log(diferencia);
+
+        //EXCLUSION
+        const dif1 = [...numericos1].filter(elemento => !numericos2.has(elemento));
+        const dif2 = [...numericos2].filter(elemento => !numericos1.has(elemento));
+
+        let exclusion = [...dif1, ...dif2];
+        console.log(exclusion);
+
+        //SET de objetos
+        const conjunto1 = new Set(
+        [
+            {nombre: "juan"},
+            {nombre: "CSS"},
+            {nombre: "JS"},
+            {gusto: "JSON"}
+        ]);
+
+        const conjunto2 = new Set(
+        [
+            {nombre: "Juan", tipo: "Carnaval"},
+            {nombre: "CSS"},
+            {nombre: "Kotlin"},
+            {nombre: "JSON"},
+            {gusto: "JSON"}
+        ]);
+
+        const elementoUnico = [
+            {nombre: "juan"},
+            {nombre: "CSS"},
+            {nombre: "JS"},
+            {gusto: "JSON"},
+            {nombre: "Juan", tipo:"Carnavales"},
+            {nombre: "Kotlin"},
+            {nombre: "JSON"}
+        ];
+        const conj1 = new Set(elementoUnico.slice(0, 3));
+        console.log(conj1);
+        const conj2 = new Set(elementoUnico.slice(2));
+        console.log(conj2);
+        const elementoComun = [...conjunto1].filter((elemento) => conjunto2.has(elemento));
+        console.log(elementoComun);
+        const resultado = new Set(elementoComun);
+        console.log(resultado);
+
+        //MAP
+        //clave siempre del mismo tipo y el valor da igual en si
+        let recetas = new Map([
+            ["tomate", 300],
+            ["pepino", 45],
+            ["pan", 56]
+        ]);
+
+        for(let ingredientes of recetas.keys()){
+            console.log(ingredientes);
+        }
+
+        for(let gramos of recetas.values()){
+            console.log(gramos);
+        }
+
+        recetas.forEach((valor, clave, mapa) => {
+            console.log(clave, valor, mapa);
+        });
+
+        //Crear un map DWEC, DIW, DWES, SI
+        let asignaturas = new Map();
+        //Para agregar
+        asignaturas.set("DWEC", "Desarrollo Web en entorno cliente");
+        asignaturas.set("DIW", "Desarrollo de Interfaces Web"); 
+        asignaturas.set("DWES", "Desarrollo Web en entorno Servidor"); 
+        asignaturas.set("SI", "Sistemas Informáticos"); 
+        
+        //escribir por pantalla la clave y valor
+        asignaturas.forEach((valor, clave) => {
+            document.write("<br><p>La clave es: " + clave + " su valor es: " + valor + "</p>");
+        });
+
+        //devolvemos solo el valor con un for
+        for (let elemento of mi_mapa.values())
+        {
+            console.log(elemento);
+        }
+        //devolvemos las claves con un for
+        for (let elemento of mi_mapa.keys())
+        {
+            console.log(elemento);
+        }
+        //¿Esta el modulo dwec?
+        document.write("<br/> Esta el elemento dwec? -> "+mi_mapa.has("dwec"));
+        document.write("<br/> Esta el elemento pepe? -> "+mi_mapa.has("PEpe".toLowerCase()));
+        //si esta la clave de si hay que borrarlo
+        //porque es de primero
+        if (mi_mapa.has("Pepe"))
+        {
+            mi_mapa.delete("Pepe");
+        }
+        else
+        {
+            document.write("<br/> no esta pepe")
+        }
+        if (mi_mapa.has("si"))
+        {
+            mi_mapa.delete("si");
+        }
+        else
+        {
+            document.write("<br/> no esta sistemas informaticos")
+        }
+
+        mi_mapa.forEach((valor,clave)=>{
+            document.write("<br/>La clave es -> "+clave+" y su valor es -> "+valor+"</br>");
+        });
+
+        //modulo, horas, alumnos
+        var miMapa2 = new Map();
+        miMapa2.set("DWEC", [420, 25]);
+        miMapa2.set("SI", [415, 22]);
+        miMapa2.set("DIW", [300, 22]);
+        miMapa2.set("DEPORTE", [42, 12]);
+        miMapa2.set("HLC", [20, 5]);
+
+        let maxHoras = 0;
+        let indexHoras = 0;
+        let maxAlumnos = 0;
+        let indexAlumnos = 0;
+
+        //contador para guardar el indice
+        let contador = 0;
+        miMapa2.forEach((elemento, clave) => {
+            console.log(clave, elemento[0], elemento[1]);
+            if(elemento[0] > maxHoras){
+                maxHoras = elemento[0];
+                indexHoras = contador;
+            }
+            
+            if(elemento[1] > maxAlumnos){
+                maxAlumnos = elemento[1];
+                indexAlumnos = contador;
+            }
+            contador++;
+        });
+
+        console.log(maxHoras, indexHoras);
+        console.log(maxAlumnos, indexAlumnos);
+        const copia_clonada = [...structuredClone(miMapa2)];
+        console.log(copia_clonada, copia_clonada[0][1][1]);
+    </script>
+</body>
+</html>

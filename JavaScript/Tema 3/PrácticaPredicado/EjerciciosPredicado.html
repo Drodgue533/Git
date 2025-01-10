@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const productos = [
+            { id: 1, nombre: "Laptop", categoria: "Electrónica", precio: 1000, stock: 5, vendido: 2 },
+            { id: 2, nombre: "Teclado", categoria: "Electrónica", precio: 50, stock: 20, vendido: 15 },
+            { id: 3, nombre: "Silla", categoria: "Muebles", precio: 150, stock: 8, vendido: 5 },
+            { id: 4, nombre: "Mesa", categoria: "Muebles", precio: 300, stock: 3, vendido: 1 },
+            { id: 5, nombre: "Celular", categoria: "Electrónica", precio: 800, stock: 10, vendido: 7 },
+            { id: 6, nombre: "Lámpara", categoria: "Hogar", precio: 40, stock: 15, vendido: 10 },
+            { id: 7, nombre: "Monitor", categoria: "Electrónica", precio: 200, stock: 6, vendido: 3 },
+            { id: 8, nombre: "Auriculares", categoria: "Electrónica", precio: 100, stock: 25, vendido: 20 },
+            { id: 9, nombre: "Estantería", categoria: "Muebles", precio: 120, stock: 4, vendido: 2 },
+            { id: 10, nombre: "Ventilador", categoria: "Hogar", precio: 60, stock: 12, vendido: 8 },
+            { id: 11, nombre: "Ventilador Eléctrico", categoria: "Electrónica", precio: 40, stock: 25, vendido: 20 }
+        ];
+
+        // 1. Map (Transformación del array)
+
+        // 1.	Obtén un array solo con los nombres de los productos.
+
+        const nombreProduc = productos.map(producto => producto.nombre);
+
+        console.log(nombreProduc);
+
+        // 2.	Genera un array que muestre el precio total de cada producto (precio * vendido).
+
+        const precioTotal = productos.map (producto => producto.precio * producto.vendido);
+
+        console.log(precioTotal);
+
+        // 2.1 Además, muestra el nombre de cada producto
+
+        const precioTotalNombre = productos.map (producto => {
+            return {
+                nombre: producto.nombre,
+                precioTotal: producto.precio * producto.vendido,
+            };
+        });
+
+        console.log(precioTotalNombre);
+
+        // 3. Crea un array de objetos con solo el nombre y el stock de cada producto.
+
+        const nombreStock = productos.map (producto => {
+            return {
+                nombre: producto.nombre,
+                stock: producto.stock,
+            };
+        });
+
+        console.log(nombreStock);
+
+        // 4.Transforma el array para incluir una propiedad enOferta que sea true si el precio es menor a 100.
+
+        const enOferta = productos.map(producto => {
+            return {
+                ...producto, // Copia todas las propiedades originales del producto
+                enOferta: producto.precio < 100,
+            };
+        });
+
+        console.log(enOferta);
+
+        // 5. Crea un array que convierta todos los nombres de los productos a mayúsculas.
+
+        const nombreMayus = productos.map(producto => {
+            return {
+                ...producto,
+                nombre: producto.nombre.toLocaleUpperCase(),
+            };
+        });
+
+        console.log(nombreMayus);
+
+        // 2. Filter (Filtrar elementos)
+
+        /*    const productos = [
+            { id: 1, nombre: "Laptop", categoria: "Electrónica", precio: 1000, stock: 5, vendido: 2 },
+            { id: 2, nombre: "Teclado", categoria: "Electrónica", precio: 50, stock: 20, vendido: 15 },
+            { id: 3, nombre: "Silla", categoria: "Muebles", precio: 150, stock: 8, vendido: 5 },
+            { id: 4, nombre: "Mesa", categoria: "Muebles", precio: 300, stock: 3, vendido: 1 },
+            { id: 5, nombre: "Celular", categoria: "Electrónica", precio: 800, stock: 10, vendido: 7 },
+            { id: 6, nombre: "Lámpara", categoria: "Hogar", precio: 40, stock: 15, vendido: 10 },
+            { id: 7, nombre: "Monitor", categoria: "Electrónica", precio: 200, stock: 6, vendido: 3 },
+            { id: 8, nombre: "Auriculares", categoria: "Electrónica", precio: 100, stock: 25, vendido: 20 },
+            { id: 9, nombre: "Estantería", categoria: "Muebles", precio: 120, stock: 4, vendido: 2 },
+            { id: 10, nombre: "Ventilador", categoria: "Hogar", precio: 60, stock: 12, vendido: 8 }
+        ];
+        */
+
+        // 6. Filtra los productos que pertenezcan a la categoría "Electrónica".
+
+        const electronica = productos.filter(producto => producto.categoria == 'Electrónica');
+
+        console.log(electronica);
+
+        // 7. Obtén los productos que tengan más de 10 unidades en stock.
+
+        const mas10 = productos.filter(producto => producto.stock > 10);
+
+        console.log(mas10);
+
+        // 8. Filtra los productos cuyo precio sea mayor o igual a 500.
+
+        const mayor500 = productos.filter(producto => producto.precio >= 500);
+
+        console.log(mayor500);
+
+        // 9. Obtén los productos que hayan vendido al menos 5 unidades.
+
+        const vendidos = productos.filter(producto => producto.vendido >= 5);
+
+        console.log(vendidos);
+
+        // 10. Filtra los productos que sean de la categoría "Hogar" y tengan un precio menor a 50.
+
+        const hogarMenor50 = productos.filter(producto => producto.categoria === "Electrónica" && producto.precio < 50);
+
+        console.log(hogarMenor50);
+
+        // 3. Reduce (Acumulación de valores)
+
+        // 11. Calcula el precio total de todos los productos en el array (suma de todos los precios).
+
+        function totalProductos(productos)
+        {
+            return productos.reduce(
+            ((acumulador, producto) => acumulador + producto.precio) 
+            , 0)
+        };
+
+        const total = totalProductos(productos); 
+
+         // 11.a Calcula el precio total de todos los productos en el array (suma de todos los precios y su stock).
+
+         function totalProductosStock(productos)
+         {
+             return productos.reduce(
+             ((acumulador, producto) => acumulador + producto.precio * producto.stock) 
+             , 0)
+         };
+ 
+         const totalconstock = totalProductosStock(productos); 
+
+         console.log("Total solo de precios:", total);  
+         console.log("Total con precios y stock:", totalconstock);
+
+         /*    const productos = [
+            { id: 1, nombre: "Laptop", categoria: "Electrónica", precio: 1000, stock: 5, vendido: 2 },
+            { id: 2, nombre: "Teclado", categoria: "Electrónica", precio: 50, stock: 20, vendido: 15 },
+            { id: 3, nombre: "Silla", categoria: "Muebles", precio: 150, stock: 8, vendido: 5 },
+            { id: 4, nombre: "Mesa", categoria: "Muebles", precio: 300, stock: 3, vendido: 1 },
+            { id: 5, nombre: "Celular", categoria: "Electrónica", precio: 800, stock: 10, vendido: 7 },
+            { id: 6, nombre: "Lámpara", categoria: "Hogar", precio: 40, stock: 15, vendido: 10 },
+            { id: 7, nombre: "Monitor", categoria: "Electrónica", precio: 200, stock: 6, vendido: 3 },
+            { id: 8, nombre: "Auriculares", categoria: "Electrónica", precio: 100, stock: 25, vendido: 20 },
+            { id: 9, nombre: "Estantería", categoria: "Muebles", precio: 120, stock: 4, vendido: 2 },
+            { id: 10, nombre: "Ventilador", categoria: "Hogar", precio: 60, stock: 12, vendido: 8 }
+        ];
+        */
+
+         // 12.	Calcula la cantidad total de productos vendidos (vendido).
+
+         const totalVendidos = productos.reduce((acumulador, producto )=> acumulador + producto.vendido, 0);
+
+         console.log(totalVendidos);
+
+         // 13.	Encuentra el producto más caro (compara los precio).
+
+         const precioMaximo = Math.max(...productos.map(producto => producto.precio));
+         const productoMasCaro = productos.find(producto => producto.precio === precioMaximo);
+         console.log(productoMasCaro);
+
+         // 14.	Suma el stock total de todos los productos.
+
+         const totalStock = productos.reduce((acumulador, producto) => acumulador + producto.stock, 0);
+
+         console.log(totalStock);
+
+         // 15.	Calcula el ingreso total generado por todos los productos (precio * vendido para cada producto y suma).
+     
+
+         const totalGenerado = productos.reduce((acumulador, producto) => acumulador + producto.precio * producto.stock, 0);
+
+         console.log(totalGenerado);
+
+         // 16.	Verifica si algún producto tiene un precio mayor a 900.
+
+        const valor900 = productos.some(producto => 900);
+        console.log(valor900);
+
+        // 17.	Comprueba si todos los productos tienen al menos 1 unidad en stock.
+
+        const alMenosUno = productos.every(producto => producto.stock > 1);
+        console.log(alMenosUno);
+
+        // 18.	Verifica si algún producto ha vendido exactamente 0 unidades.
+
+        const vendido0 = productos.some(producto => producto.vendido === 0);
+        console.log(vendido0);
+
+         // 19.	Comprueba si todos los productos pertenecen a la categoría "Electrónica".
+
+         const electronicaTo = productos.every(producto => producto.categoria === 'Electrónica');
+         console.log(electronicaTo);
+
+         // 20.	Determina si hay algún producto con un precio menor a 50.
+
+         const meno50 = productos.some(producto => producto.precio < 50);
+         console.log(meno50);
+
+         // 21.	Encuentra el primer producto cuyo stock sea menor a 5.
+
+         const menor5 = productos.find(producto => producto.stock < 5);
+         console.log(menor5);
+
+         // 22.	Busca el producto que tenga exactamente 20 unidades vendidas.
+
+         const stock20 = productos.find(producto => producto.stock == 20);
+         console.log(stock20);
+
+         // 23.	Encuentra el primer producto de la categoría "Muebles".
+
+        const muebles = productos.find(producto => producto.categoria === 'Muebles');
+        console.log(muebles);
+
+         
+
+    </script>
+</body>
+
+</html>

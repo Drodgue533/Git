@@ -1,0 +1,7 @@
+@use '../variables.scss' as va;
+@use '../mixins.scss';
+
+.button{
+    background-color: va.$primary-color;
+    @include mixins.borde-radio(4px);
+}

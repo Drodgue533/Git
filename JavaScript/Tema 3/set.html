@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // No pueden existir valores duplicados, no tienen un índice
+
+        // Crea un set vacío
+
+        var set = new Set();
+
+        // Agregamos elementos al set
+
+        let juan = {nombre:"Juan"};
+        let jose = {nombre:"Jose"};
+        let fran = {nombre:"Francisco"};
+        let pilar = {nombre:"Pilar"};
+
+        set.add(juan);
+        set.add(jose);
+        set.add(fran);
+        set.add(pilar);
+
+        // Para ver el número de elementos que contiene un set
+
+        console.log(set.size, set);
+    </script>
+</body>
+</html>

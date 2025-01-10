@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fecha Formateada</title>
+</head>
+<body>
+    <!-- Campo de entrada de tipo fecha -->
+    <label for="fecha">Selecciona una fecha:</label>
+    <input type="date" id="fecha" />
+
+    <!-- Botón para mostrar la fecha formateada en consola -->
+    <button onclick="mostrarFecha()">Mostrar Fecha Formateada</button>
+
+    <script>
+        function mostrarFecha() {
+            // Obtener el valor de la fecha seleccionada en el input
+            const inputFecha = document.getElementById("fecha").value;
+
+            // Crear un objeto Date con la fecha seleccionada
+            const fecha = new Date(inputFecha);
+
+            // Arrays para los nombres de los días de la semana y los meses
+            const diasSemana = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+            const meses = [
+                "enero", "febrero", "marzo", "abril", "mayo", "junio",
+                "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+            ];
+
+            // Obtener el día de la semana, el día del mes, el mes y el año de la fecha
+            const diaSemana = diasSemana[fecha.getDay()];
+            const diaMes = fecha.getDate();
+            const mes = meses[fecha.getMonth()];
+            const año = fecha.getFullYear();
+
+            // Crear un objeto Date para la hora actual
+            const ahora = new Date();
+
+            // Obtener las horas en formato de 12 horas, ajustando para mostrar "12" en lugar de "0"
+            const horas = ahora.getHours() % 12 || 12;
+
+            // Obtener los minutos, agregando un cero a la izquierda si es necesario
+            const minutos = ahora.getMinutes().toString().padStart(2, '0');
+
+            // Determinar si es "de la mañana" o "de la tarde" en función de la hora
+            const periodo = ahora.getHours() >= 12 ? "de la tarde" : "de la mañana";
+
+            // Mostrar el mensaje formateado en la consola
+            console.log(`Barbate, ${diaSemana} ${diaMes} de ${mes} de ${año}, son las ${horas}:${minutos} ${periodo}`);
+        }
+    </script>
+</body>
+</html>

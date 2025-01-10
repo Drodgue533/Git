@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar @</title>
+</head>
+<body>
+    <h1>Buscar @</h1>
+
+    
+    <input type="text" id="email" placeholder="Escribe el email">
+    
+    <button onclick="buscarArroba()">Buscar '@'</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function buscarArroba() {
+           
+            const frase = document.getElementById("email").value;
+
+            const posicion = frase.indexOf('@');
+     
+            if (posicion !== -1) {
+                document.getElementById("resultado").innerText = "El símbolo '@' se encuentra en la posición: " + posicion;
+            } else {
+                document.getElementById("resultado").innerText = "El símbolo '@' no se encuentra en la frase.";
+            }
+        }
+    </script>
+</body>
+</html>

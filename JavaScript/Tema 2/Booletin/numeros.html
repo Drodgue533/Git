@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Aceptaré todos los números hasta que introduzcas un 0</h3>
+    Numero: <input type="number" id="introducido">
+    <button type="button" onclick="cosasNumeros()">Introducir</button>
+    <h3 id="resultado"></h3>
+
+    <script>
+
+        var mayor = -Infinity;
+        var menor = Infinity;
+        var suma = 0;
+        var media = 0;
+        var contador = 0;
+        function cosasNumeros(){
+          
+            var valor = document.getElementById('introducido').value;
+            var introducido = parseInt(valor);
+            var mensaje = "";
+            if(introducido === 0){
+                mensaje = "El número mayor es: " + mayor + "<br> El número menor es: " + menor + "<br> La suma de los números es: " + suma + "<br> La media de los números es: " + media + "<br>"; 
+            }else{
+                contador ++;
+                suma += introducido;
+                media = suma / contador;
+                if(introducido >= mayor){
+                    mayor = introducido;
+                }else if(introducido <= menor){
+                    menor = introducido;
+                }
+            }
+            document.getElementById('resultado').innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

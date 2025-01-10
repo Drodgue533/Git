@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const nombres = ["Pedro", "Sara", "Ana", "Adrian"];
+
+        // Iterar sobre cada nombre en el array
+        nombres.forEach((nombre) => {
+            // Obtener la primera y última letra del nombre
+            const primeraletra = nombre.at(0).toLowerCase();
+            const ultimaletra = nombre.at(-1).toLowerCase();
+
+            // Verificar si la primera letra es 'p' o 'a' y la última 'o' o 'n'
+            if ((primeraletra === 'p' || primeraletra === 'a') && (ultimaletra === 'o' || ultimaletra === 'n'))
+            {
+                console.log(`El nombre ${nombres} cumple con la expresión regular`);
+            }
+        });
+
+        // Usando expresiones regulares
+        // ^ (que comience por) . (cualquier caracter) + (mas de un caracter)  * (0 o mas) $ (que termine) /i (le da igual si es minúscula o mayúscula) g (en todas las partes de la misma cadena)
+        // /^(p|a).+(p|n)$/i/
+
+        nombres.forEach((nombre)=>
+        {
+            // Expresión regular para comprobar si empieza con 'p' o 'a' y termina con 'o' o 'n'
+            let expresionregular= /^(p|a).+(o|n)$/i;
+            if(expresionregular.test(nombre))
+            {
+                console.log(`El nombre ${nombres} cumple con la expresión regular`);
+            }
+        });
+
+        let expresion1= /hola/gi;
+        let cadena = "Hola mundo hola picha";
+
+        // Buscar todas las coincidencias de 'hola' en la cadena (con "g" de global)
+        console.log(cadena.match(expresion1));
+
+        // Verificar si 'hola' existe en la cadena, ignorando mayúsculas y minúsculas
+        console.log(expresion1.test(cadena));
+
+        let expr2=/picha/;
+        let nuevacadena=cadena.replace(expr2,"Daniel");
+
+        // Reemplazar "picha" por "Daniel" en la cadena
+        console.log(nuevacadena);
+
+        let becarios="antonio. moreno relinque";
+
+        // Usamos el carácter de escape para dividir el string por puntos (.) sin errores
+        let expr3 = /\./; 
+        let nombre = becarios.split(expr3);
+        console.log(nombre);
+
+        // Todas las palabras que empiecen en mayúscula
+        //let expr4 = /\b^[A-Z][a-z]*\b/g; si quitamos el gorrito, buscará todas las palabras que cumplan esa condición
+
+        let expr4 = /\b[A-Z][a-z]*\b/g;
+        let cadena1 ="Hola Mundo que Tal";
+        let coincidencias = cadena1.match(expr4);
+
+        // Mostrar todas las palabras que empiezan con mayúscula
+        console.log(coincidencias);
+
+        // Correo electrónico
+        // Expresión regular para validar correos electrónicos
+        // ^[A-Za-z0-9._-]+@^[A-Za-z0-9._]+\.[a-zA-Z]{2,6}$
+        let correoreg = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,6}$/i;
+        let email = "dani.2smr@gmail."
+
+        // Comprobar si el email cumple con el patrón
+        console.log(correoreg.test(email));
+
+        let direccion = "Daniel Rodriguez 44057533 el tuyo es 4405";
+        let exprnumericos=/\d+/;
+        let numeros=direccion.match(exprnumericos);
+
+        // Buscar y mostrar los números dentro de la dirección
+        console.log(numeros);
+
+    const libros = [
+    { titulo: "JavaScript", npaginas: 32, autor: "Juan Pérez", correo: "juan@pepe.es", codigo: "ABC123", direccion: "Avd. Juan" },
+    { titulo: "Programacion", npaginas: 12, autor: "María García", correo: "maria@.es", codigo: "FJ45", direccion: "C. Luis Braille" },
+    { titulo: "Programacion C++", npaginas: 45, autor: "Pedro Gomez", correo: "pedro.gomez@go.com", codigo: "32SWD", direccion: "Avd. Mar" }
+];
+
+        let expr5 = /JavaScript/;
+        const librosJava = libros.filter(libro => expr5.test(libro.titulo));
+
+        // Filtrar los libros que contienen "JavaScript" en su título
+        console.log(librosJava);
+
+        const autores_fallo_correo = libros.filter(libro =>
+        {
+            // Filtrar libros con un correo válido
+            correoreg.test(libro.correo)
+        });
+
+        const num = /\d+/;
+        const libroscodigo = libros.map(libro => ({
+            nomtitulo: libro.titulo,
+            estanteria: libro.codigo.match(num)[0], // Obtener el primer número del código
+            otro: typeof (libro.codigo.match(num)) // Tipo de dato del resultado del match
+        }));
+
+        // Mostrar libros con el número de estantería extraído del código
+        console.log(libroscodigo);
+
+        const expr6 = /\b(Avd\.|C\.)\b/;
+        let direccionecompletas = libros.map(libro => ({
+            direccion: libro.direccion.replace(
+                expr6, 
+                encontrado => {
+                    if (encontrado == "Avd.") return "Avenida"; // Reemplazar "Avd." por "Avenida"
+                    if (encontrado == "C.") return "Calle"; // Reemplazar "C." por "Calle"
+                    return encontrado
+                }
+            )
+        }));
+
+        // Mostrar direcciones completas con los reemplazos realizados
+        console.log(direccionecompletas);
+
+    </script>
+</body>
+</html>

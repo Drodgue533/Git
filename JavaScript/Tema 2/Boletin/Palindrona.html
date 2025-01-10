@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Es palíndrona?</title> 
+</head>
+<body>
+    <script>
+        function palindrona() { 
+            var frase = document.getElementById("frase").value;
+            var fraseSin = frase.split(' ').join(''); 
+            var girada = fraseSin.split('').reverse().join(''); 
+
+            // Este método join, convierte el array en una cadena 
+
+            // Esta tabla muestra las palabras de forma vertical
+   
+            var tablaVertical = "<table border='1'><tr>";
+
+                for (var i = 0; i < fraseSin.length; i++) {
+                    tablaVertical += "<tr><td>" + fraseSin[i] + "</td><td>" + girada[i] + "</td></tr>";            
+                }
+    
+            tablaVertical += "</tr></table>";
+
+           // Esta tabla muestra las palabras de forma horizontal
+
+           var tablaHorizontal = "<table border='1'><tr>";
+
+            for(var i =0; i <fraseSin.length; i++){
+                tablaHorizontal += "<td>" + fraseSin[i] + "</td>";
+            }
+
+            tablaHorizontal += "</tr></table>";
+            var tablaHorizontal2 = "<table border='1'><tr>";
+
+                for(var i =0; i <fraseSin.length; i++){
+                    tablaHorizontal2 += "<td>" + girada[i] + "</td>";
+                }
+    
+                tablaHorizontal2 += "</tr></table>";
+
+            document.getElementById("tablaLetrasVertical").innerHTML = tablaVertical;
+            document.getElementById("tablaLetrasHorizontal").innerHTML =tablaHorizontal;
+            document.getElementById("tablaLetrasHorizontal2").innerHTML =tablaHorizontal2;
+
+                // Comprobar si es palíndrona
+
+            if (girada == fraseSin) { 
+                alert("Es Palíndroma");
+            } else {
+                alert("No es palíndroma"); 
+            }
+        }
+
+
+    </script>
+    <h2>¿Es palíndrona la siguiente frase o palabra?</h2> 
+    <form> 
+        Frase: <input type="text" id="frase"> 
+        <button type="button" onclick="palindrona()">Comprobar</button> 
+    </form>
+
+    <h3>Letras de la frase vertical: </h3>
+    <div id="tablaLetrasVertical"></div>
+    <h3>Letras de la frase horizontal: </h3>
+    <div id="tablaLetrasHorizontal"></div>
+    <div id="tablaLetrasHorizontal2"></div>
+</body>
+</html>

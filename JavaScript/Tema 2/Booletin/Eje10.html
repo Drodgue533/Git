@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+      // Cálculo del área y longitud de una circunferencia
+
+        var radio = prompt("Por favor, dame el radio de la circunferencia: ");
+        radio = parseFloat(radio);
+        var longitud, resultado;
+        const pi = 3.14;
+
+        var longitud = 2 * pi * radio;
+        var area = pi * radio * radio;
+
+        resultado = "La longitud del radio de la circunferencia es: " + longitud.toFixed(2) + " su área es " + area.toFixed(2);
+
+        alert(resultado);
+    </script>
+</body>
+</html>

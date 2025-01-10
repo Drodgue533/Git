@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegación de Eventos</title>
+</head>
+<body>
+
+    <ul id="lista">
+        <li>Primero</li>
+        <li>Segundo</li>
+        <li>Tercero</li>
+        <li>Cuarto</li>
+    </ul>
+        <div><p>Hola</p></div>
+    <script>
+        /*
+        Poner un único evento al elemento padre, que encierra otros elementos.
+        Por tanto, en vez de poner 4 eventos en una lista ul con 4 li pongo sólo uno.
+        */
+        const lista = document.getElementById('lista');
+        // Añadir un escuchador o listener al elemento padre
+        lista.addEventListener("click",
+            function(evento){
+                if(evento.target && evento.target.matches("li"))
+                {
+                    console.log("Item picado: " + evento.target.textContent);
+                }
+        });
+    </script>
+
+</body>
+</html>

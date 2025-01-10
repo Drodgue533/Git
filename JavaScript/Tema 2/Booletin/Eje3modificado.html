@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de precio</title>
+</head>
+<body>
+    <script>
+        function comprobarPrecio(){
+
+            // Obtenemos el valor
+
+            var precio = document.getElementById("precio").value;
+
+            // Comprobamos si el precio está entre 0 y 10
+            
+            var mensaje;
+
+            if(precio >= 0 && precio <=10){
+                mensaje = "El precio está entre 0 y 10 " + precio;
+            }else{
+                mensaje = "El precio no está entre 0 y 10 " + precio;
+            }
+
+            document.getElementById('resultado').textContent = mensaje;
+        }
+    </script>
+    <h2>Introduce un precio entre 0 y 10</h2>
+    <form>
+
+        Precio: <input type="number" id="precio" name="precio" required>
+        <button type="button" onclick="comprobarPrecio()">Comprobar</button>
+
+        <div id="resultado"></div>
+    </form>
+</body>
+</html>

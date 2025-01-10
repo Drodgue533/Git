@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lista = [];
+        lista[0] = 'leche';
+        lista[1] = 'pan';
+        lista[2] = 'manzanas';
+        console.log(lista); 
+        
+        lista[1] = 'plátanos'; 
+        lista.push('huevos'); 
+
+        console.log(lista);
+
+        // Elimina el último elemento de la matriz
+
+        lista.pop(); // Esto elimina 'huevos'
+        
+        console.log(lista); 
+
+        // Ordene la lista alfabéticamente
+
+        lista.sort();
+
+        console.log(lista);
+
+        // Encuentre y genere el valor del índice de Leche.
+
+        var leche = lista.indexOf('leche');
+        console.log(leche);
+
+        // Después de los plátanos, agregue las zanahorias y la lechuga
+
+        lista.splice(1,0,'zanahorias','lechuga');
+        console.log(lista);
+
+        // Cree una nueva lista que contenga Zumo and Palomitas.
+
+        var zumo = ['zumo','palomitas'];
+
+        // Obtenga el último valor de índice de Pop y envíelo a la consola.
+
+        var ultimo = lista.pop();
+        console.log(ultimo);
+
+    </script>
+</body>
+</html>

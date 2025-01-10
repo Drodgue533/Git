@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lote 1</title>
+</head>
+<body>
+    <script>
+        //Partiendo array de numeros
+        const numeros = [3, 45, 6, 23, 11, 52];
+
+        /*
+            Ej1 Sumar Elementos Array
+        */
+
+        function sumarElementos(array){
+            return array.reduce((acumulador, valor) => acumulador + valor, 0);
+        }
+
+        console.log("Mostrando Array", numeros);
+        console.log("Suma Elementos -->", sumarElementos(numeros));
+
+        /*
+            Ej2 Encontrar el numero mayor
+        */
+        function numeroMayor(array){
+            return Math.max(...numeros);
+        }
+
+        console.log("Número más grande -->", numeroMayor(numeros));
+
+        /*
+            Ej3 Filtrar numeros pares
+        */
+
+        function filtrarPares(array){
+            return array.filter((numero) => numero % 2 == 0);
+        }
+
+        console.log("Números pares", filtrarPares(numeros));
+
+        /*
+            Ej4 Filtrar numeros primos
+        */
+        function filtrarPrimos(array){
+            return array.filter((numero) => {
+                for (let n = 2; n < numero-1; n++){
+                    if(numero%n == 0){
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            });
+        }
+        
+        console.log("Números primos", filtrarPrimos(numeros));
+
+        /*
+            Ej5 Ordenar de mayor a menor
+        */
+        function ordenarNumeros(array){
+            return array.sort((a,b) => a-b);
+        }
+
+        console.log("Array ordenado de menor a mayor", ordenarNumeros(numeros));
+
+        /*
+            Ej6 Ordenar de mayor a menor sin modificar el array original
+        */
+        function ordenarNumerosSinModificar(array){
+            return array.slice().sort((a,b) => a-b);
+        }
+
+        /*
+            Ej7 Ordenar a partir de posicion
+        */
+        function ordenarDesdePosicion(array, posicion){
+            if(posicion < 0 || posicion >= array.length){
+                return array.slice();
+            } else {
+                const arrayInicial = array.slice(0, posicion);
+                const arrayOrdenado = array.slice(posicion).sort((a,b) => b-a);
+
+                return arrayInicial.concat(arrayOrdenado);
+            }
+        }
+        const numOrdenadosPorPosicion = ordenarDesdePosicion(numeros, 2);
+        console.log("Parte array Ordenada -->", numOrdenadosPorPosicion);
+    </script>
+</body>
+</html>

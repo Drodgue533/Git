@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //basicos
+        const array = [1, 2, 3, 4, 5];
+
+// reverse(): Invierte el orden de los elementos
+console.log(array.reverse()); // [5, 4, 3, 2, 1]
+
+// toReversed(): Devuelve una copia invertida sin modificar el original
+console.log(array.toReversed()); // [5, 4, 3, 2, 1]
+
+// sort(): Ordena los elementos alfabéticamente o según una función de comparación
+console.log(array.sort((a, b) => a - b)); // [1, 2, 3, 4, 5]
+
+// toSorted(): Devuelve una copia ordenada sin modificar el original
+console.log(array.toSorted((a, b) => b - a)); // [5, 4, 3, 2, 1]
+
+// forEach(): Itera sobre cada elemento del array
+array.forEach(item => console.log(item));
+
+//avanzados
+const numeros = [1, 2, 3, 4, 5];
+
+// every(): Comprueba si todos los elementos cumplen una condición
+const todosPositivos = numeros.every(num => num > 0);
+console.log(todosPositivos); // true
+
+// some(): Comprueba si al menos un elemento cumple una condición
+const algunoMayorQueTres = numeros.some(num => num > 3);
+console.log(algunoMayorQueTres); // true
+
+// map(): Crea un nuevo array aplicando una función a cada elemento
+const dobles = numeros.map(num => num * 2);
+console.log(dobles); // [2, 4, 6, 8, 10]
+
+// filter(): Filtra los elementos que cumplen una condición
+const pares = numeros.filter(num => num % 2 === 0);
+console.log(pares); // [2, 4]
+
+// findIndex(): Devuelve el índice del primer elemento que cumple una condición
+const indiceMayorQueTres = numeros.findIndex(num => num > 3);
+console.log(indiceMayorQueTres); // 3
+
+// find(): Devuelve el primer elemento que cumple una condición
+const primerMayorQueTres = numeros.find(num => num > 3);
+console.log(primerMayorQueTres); // 4
+
+// findLastIndex(): Devuelve el índice del último elemento que cumple una condición
+const ultimoIndiceMenorQueCuatro = numeros.findLastIndex(num => num < 4);
+console.log(ultimoIndiceMenorQueCuatro); // 2
+
+// findLast(): Devuelve el último elemento que cumple una condición
+const ultimoMenorQueCuatro = numeros.findLast(num => num < 4);
+console.log(ultimoMenorQueCuatro); // 3
+    </script>
+</body>
+</html>

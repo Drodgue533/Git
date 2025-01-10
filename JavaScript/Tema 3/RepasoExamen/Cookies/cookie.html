@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=7, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Función para obtener una cookie por su nombre
+        function obtenerCookie(nombre) {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith(nombre + "=")) {
+                    return cookie.substring(nombre.length + 1);  // Devuelve solo el valor
+                }
+            }
+            return null;  // Si no encuentra la cookie, devuelve null
+        }
+
+        // Función para comprobar si una cookie existe
+        function comprobarCookie(nombre) {
+            return obtenerCookie(nombre) !== null;  // Si obtiene el valor de la cookie, la cookie existe
+        }
+
+        // Función para establecer una cookie
+        function establecerCookie(nombre, valor, dias) {
+            var fechaExpiracion = new Date();
+            fechaExpiracion.setTime(fechaExpiracion.getTime() + (dias * 24 * 60 * 60 * 1000));  // Fecha de expiración
+            var expires = "expires=" + fechaExpiracion.toUTCString();  // Definir la fecha de expiración
+            document.cookie = nombre + "=" + valor + "; " + expires + "; path=/";  // Establecer la cookie
+        }
+
+        // Ejemplo de uso:
+
+        // Establecer una cookie
+        establecerCookie("usuario", "Juan", 7);  // Cookie con nombre "usuario" y valor "Juan" que expira en 7 días
+
+        // Comprobar si la cookie "usuario" existe
+        if (comprobarCookie("usuario")) {
+            console.log("La cookie 'usuario' existe con el valor: " + obtenerCookie("usuario"));
+        } else {
+            console.log("La cookie 'usuario' no existe.");
+        }
+
+        // Obtener el valor de la cookie "usuario"
+        var valorUsuario = obtenerCookie("usuario");
+        console.log("Valor de la cookie 'usuario': " + valorUsuario);
+
+        // Ejemplo de eliminar la cookie
+        document.cookie = "usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";  // Esto elimina la cookie
+
+
+    </script>
+</body>
+
+</html>

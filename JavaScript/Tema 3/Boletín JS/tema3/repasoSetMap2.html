@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set y Map</title>
+</head>
+<body>
+    <script>
+        let valores = [22, 9, 6, 6, 4, 56];
+
+        // Verifica si al menos un valor cumple con la condición de ser mayor o igual a 34
+        let todos_valores = valores.some((valor) => valor >= 34);
+        console.log(todos_valores);
+
+        // Otra forma de verificar si al menos un valor cumple la condición usando una función
+        const predicado = (valor) => valor >= 34;
+        console.log(valores.some(predicado));
+
+        // Verifica si algún valor es igual a 6
+        const iguales = (valor) => valor === 6;
+        console.log(valores.some(iguales));
+
+        // Verifica si todos los valores del array son iguales a 6
+        console.log(valores.every(iguales));
+
+        // Crea un nuevo array que indique si cada valor del array original es mayor o igual a 9
+        const vmayor9 = (valor) => valor >= 9;
+        const array9 = valores.map(vmayor9);
+        console.log(array9);
+
+        const nombres = ["Pepe", "Juaky", "Judith", "Pancracio", "Heriberto"];
+
+        // Obtiene un array con la longitud de cada nombre
+        let predicado1 = (valor) => valor.length;
+        let vNombresTamanio = nombres.map(predicado1);
+        console.log(vNombresTamanio);
+        
+        // Filtra los nombres cuya longitud es mayor o igual a 5
+        let predicado2 = (valor) => {
+            if (valor.length >= 5) {
+                return valor.length;
+            }
+        };
+
+        // Filtra los nombres que comienzan con la letra "J"
+        let predicado3 = (nombre) => nombre.startsWith("J");
+        let filtros = nombres.filter(predicado3);
+        console.log(filtros);
+        
+        // Búsqueda en arrays
+        const nombres2 = ["Pepe", "Juaky", "Judith", "Pancracio", "Heriberto"];
+
+        // Encuentra el primer elemento cuya longitud es mayor o igual a 6
+        let busco = (elemento) => elemento.length >= 6;
+        console.log(nombres2.find(busco)); // Primer elemento que cumple
+        console.log(nombres2.findIndex(busco)); // Índice del primer elemento que cumple
+        console.log(nombres2.findLast(busco)); // Último elemento que cumple
+        console.log(nombres2.findLastIndex(busco)); // Índice del último elemento que cumple
+        
+        // Trabajo con objetos dentro de un array
+        let mensajes = [
+            {
+                id: 1,
+                titulo: "Mi JS",
+                tags: ["java", "js", "php"],
+                url: "https://uno.es"
+            },
+            {
+                id: 2,
+                titulo: "Javascript",
+                tags: ["java", "js", "visual"],
+                url: "https://dos.es"
+            },
+            {
+                id: 3,
+                titulo: "Angular",
+                tags: ["java", "Angular", "React"],
+                url: "https://tres.es"
+            },
+        ];
+
+        // Encuentra un mensaje cuyo título sea "Angular"
+        let predicado4 = (mensaje) => mensaje.titulo == "Angular";
+        let libro_buscado = mensajes.find(predicado4);
+        console.log(libro_buscado.id, libro_buscado.titulo, libro_buscado.url, libro_buscado.tags);
+
+        // Itera sobre los tags del mensaje encontrado
+        libro_buscado.tags.forEach((valor) => {
+            console.log(valor);
+        });
+
+        // Verifica si alguno de los tags es "java"
+        let predicado5 = (valor) => valor == "java";
+        console.log(libro_buscado.tags.some(predicado5));
+
+        // Verifica si ciertos tags están presentes en el array de tags
+        console.log(libro_buscado.tags.includes("Powershell")); // Falso
+        console.log(libro_buscado.tags.includes("React")); // Verdadero
+
+        // Verifica si todos los mensajes tienen el tag "React"
+        console.log(mensajes.every(mensaje => mensaje.tags.includes("React")));
+
+        // Verifica si al menos uno de los mensajes tiene el tag "React"
+        console.log(mensajes.some(valor => valor.tags.includes("React")));
+
+        // Crea un array con los títulos de todos los mensajes
+        let titulos = mensajes.map(valor => valor.titulo);
+        console.log(titulos);
+
+        // Filtra mensajes que contienen el tag "React"
+        console.log(mensajes.filter(mensaje => mensaje.tags.includes("React")));
+
+        // Filtra mensajes que tienen un `id` definido
+        console.log(mensajes.filter(mensaje => mensaje.id != undefined));
+
+        // Acumula todos los tags en un solo array
+        let acumTags = mensajes.reduce((acumTags, mensaje) => {
+            return [...acumTags, ...mensaje.tags];
+        }, []);
+        
+        // Convierte todos los tags acumulados en un Set para eliminar duplicados
+        // y luego lo convierte de nuevo en un array
+        let uniqueTags = Array.from(new Set(acumTags));
+        console.log(uniqueTags);
+
+        console.log(acumTags);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegación usando dinamismo</title>
+</head>
+<body>
+    <button id="añadir">Añadir Elemento</button>
+    <ul id="lista">
+        <li>Primera Original</li>
+    </ul>
+    <script>
+        const boton = document.getElementById('añadir');
+        const lista = document.getElementById('lista');
+        boton.addEventListener("click", function()
+        {
+            const nuevo = document.createElement("li");
+            nuevo.textContent = "Nuevo Elemento";
+            lista.appendChild(nuevo);
+        });
+        lista.addEventListener("click", function(evento) {
+            console.log("Evento activado en lista");
+            if (evento.target && evento.target.matches("li")) {
+                console.log("Elemento: " + evento.target.textContent);
+            }
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #contenedor {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .reloj {
+            font-family: courier, sans-serif;
+            font-size: 40px;
+            color: rgb(3, 3, 93);
+        }
+        .boton {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <div class="reloj" id="centesimas">0</div>
+        <button class="boton" onclick="iniciar()">Iniciar</button>
+        <button class="boton" onclick="parar()">Parar</button>
+        <button class="boton" onclick="reiniciar()">Reiniciar</button>
+    </div>
+    <script>
+        let centesimas = 0;
+        let control;
+
+        function iniciar() {
+            control = setInterval(cronometro, 10); // Llama a cronometro cada 10 ms
+        }
+
+        function parar() {
+            clearInterval(control);
+        }
+
+        function reiniciar() {
+            clearInterval(control);
+            centesimas = 0;
+            document.getElementById("centesimas").innerHTML = centesimas; // Actualiza a 0
+        }
+
+        function cronometro() {
+            centesimas++; // Incrementa centésimas
+            document.getElementById("centesimas").innerHTML = centesimas; // Muestra el valor actualizado
+        }
+    </script>
+</body>
+</html>

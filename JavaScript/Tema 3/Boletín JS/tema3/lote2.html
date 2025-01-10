@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lote 2</title>
+</head>
+<body>
+    <script>
+        //A partir estructura de datos
+        const productos = [
+            {nombre: "Producto 1", precio:10.99},
+            {nombre: "Producto 2", precio:5.50},
+            {nombre: "Producto 3", precio:12.00},
+            {nombre: "Producto 4", precio:7.75},
+            {nombre: "Producto 5", precio:3.99}
+        ];
+
+        console.log("Mostrar Productos", productos);
+
+        /*
+            Ej8 Calcular el precio total
+        */
+        function calcularPrecio(array){
+            return array.reduce((acumulador, valor) => acumulador + parseFloat(valor.precio), 0);
+        }
+
+        console.log("Precio total -->", calcularPrecio(productos));
+
+        /*
+            Ej9 Filtrar productos por precio maximo
+        */
+        function filtrarPorPrecioMaximo(array, precioMaximo){
+            return array.filter(producto => producto.precio <= precioMaximo);
+        }
+
+        console.log("Filtro Precio -->", filtrarPorPrecioMaximo(productos, 7.00));
+        /*
+            Ej10 Ordenar productos por precio de menor a mayor
+        */
+        function ordenarPorPrecio(array){
+            return array.sort((a,b) => a.precio-b.precio);
+        }
+
+        console.log("Ordenado por Precio -->",ordenarPorPrecio(productos));
+
+        /*
+            Ej11 Sacar la media
+        */
+        function calcularMediaPrecios(array){
+            const suma =  array.reduce((acumulador, valor) => (acumulador + parseFloat(valor.precio)),0);
+            return parseFloat(suma/array.length).toFixed(3);
+        }
+
+        console.log(calcularMediaPrecios(productos));
+
+        /*
+            Ej12
+        */
+        const productos2 = [
+            {nombre: "Producto 1", precio:10.99},
+            {nombre: "Producto 2", precio:5.50},
+            {nombre: "Producto 3", precio:12.00},
+            {nombre: "Producto 4", precio:7.75},
+            {nombre: "Producto 5", precio:3.99}
+        ];
+        const descuento = [5, 2, 10, 1, 4];
+        const aumento = [10, 5, 15, 20, 8];
+
+        function anadirCampos(array, campo1, campo2){
+            //recibimos array
+            //dos campos a añadir
+            return array.map((elemento, indice) => ({...elemento, descuento:campo1[indice], aumento:campo2[indice]}));
+        }
+
+        const nuevosProductos = anadirCampos(productos2, descuento, aumento);
+        console.log(nuevosProductos);
+
+        function calcularPreciosNuevos(array){
+            return array.map((producto) =>{
+                const precioAumento = producto.precio + (producto.precio*(producto.aumento/100));
+                const precioDescuento = producto.precio - (producto.precio*(producto.descuento/100));
+                const precioNuevo = (producto.precio + precioAumento - precioDescuento);
+                return {
+                    ...producto,
+                    nuevoPrecio:precioNuevo.toFixed(3)
+                };
+            });
+        }
+
+        console.log(calcularPreciosNuevos(nuevosProductos));
+    </script>
+</body>
+</html>

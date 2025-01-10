@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*SET*/
+        const set = new Set([1, 2]);
+
+        set.add(3); // Añade un valor al conjunto
+        set.delete(2); // Elimina un valor del conjunto
+        set.clear(); // Vacía el conjunto
+
+        // Unión de conjuntos
+        const setA = new Set([1]);
+        const setB = new Set([2]);
+        const union = new Set([...setA,...setB]); // {1,2}
+
+        // Métodos de Set
+        console.log(set.size); // Número de elementos en el set.
+        set.add(5); // Añade un elemento.
+        console.log(set.has(1)); // true (comprueba si existe un valor).
+        set.delete(5); // Elimina un valor.
+        set.clear(); // Vacía el conjunto.
+
+        /*MAP*/
+        let miMapa = new Map();
+
+        //métodos
+        // .set() - Añadir elementos al Map
+        miMapa.set('nombre', 'Juan');
+        miMapa.set('edad', 30);
+        miMapa.set('profesion', 'Desarrollador');
+
+        // .size - Obtener el número de elementos en el Map
+        console.log("Número de elementos en el Map:", miMapa.size); // 3
+
+        // .get() - Obtener el valor de una clave
+        console.log("Nombre:", miMapa.get('nombre')); // Juan
+        console.log("Edad:", miMapa.get('edad')); // 30
+
+        // .has() - Comprobar si existe una clave en el Map
+        console.log("¿Existe la clave 'nombre'?", miMapa.has('nombre')); // true
+        console.log("¿Existe la clave 'direccion'?", miMapa.has('direccion')); // false
+
+        // .set() - Modificar el valor de una clave existente
+        miMapa.set('edad', 31);
+        console.log("Edad modificada:", miMapa.get('edad')); // 31
+
+        // .delete() - Eliminar un elemento con una clave
+        miMapa.delete('profesion');
+        console.log("¿Existe la clave 'profesion'?", miMapa.has('profesion')); // false
+
+        // .clear() - Borrar todos los elementos del Map
+        miMapa.clear();
+        console.log("Número de elementos después de clear:", miMapa.size); // 0
+    </script>
+</body>
+</html>

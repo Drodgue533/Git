@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Alumna</title>
+</head>
+<body>
+    <script>
+        function comprobarNota()
+        {
+
+            // Obtenemos la nota
+
+            var nota = document.getElementById("nota").value;
+            var mensaje;
+
+      // Comprobamos si es un número válido
+      if (isNaN(nota) || nota < 0 || nota > 10) {
+        mensaje = "Por favor, introduce una nota válida entre 0 y 10.";
+    } else if (nota < 5) {
+        mensaje = "Suspenso";
+    } else if (nota >= 5 && nota < 7) {
+        mensaje = "Aprobada";
+    } else if (nota >= 7 && nota <= 8) {
+        mensaje = "Notable";
+    } else if (nota > 8 && nota <= 10) {
+        mensaje = "Sobresaliente";
+    }
+            alert("Tu nota es: " + mensaje);
+        }
+    </script>
+
+    <h2>Introduce tu nota</h2>
+    <form>
+        Nota: <input type="text" id="nota" required>
+        <button type="button" onclick="comprobarNota()">Comprobar</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Crea un set vacío
+
+        var set = new Set();
+
+        // Agregamos elementos al set
+
+        let juan = {nombre:"Juan"};
+        let jose = {nombre:"Jose"};
+        let fran = {nombre:"Francisco"};
+        let pilar = {nombre:"Pilar"};
+
+        set.add(juan);
+        set.add(jose);
+        set.add(fran);
+        set.add(pilar);
+
+        console.log(set);
+
+        // Para ver el número de elementos que contiene un set
+
+        console.log(set.size, set);
+
+        // Hacemos un 2 set
+
+        let set2 = new Set();
+        let bicicleta = {nombre:"Bicicleta"};
+        let pesas = {nombre:"Pesas"};
+        let boxeo = {nombre:"Boxeo"};
+
+        set2.add(bicicleta);
+        set2.add(pesas);
+        set2.add(boxeo);
+        set2.add(juan);
+        set2.add(pilar);
+        console.log(set2.size, set2);
+
+        // Para unir 2 set
+        // union const set = new Set(...1Set,...2Set]);
+        // ... separa elementos iterables
+
+        var setUnion = new Set([...set,...set2]);
+        console.log(setUnion);
+
+        var numero = new Set([1,2,3,4]);
+        var numeros = new Set([4,5,6,7,8]);
+
+        var union = new Set([...numero,...numeros]);
+
+        console.log(union);
+
+        // También podemos unirlos alreves
+
+        var alreves = new Set([...numeros,...numero]);
+
+        console.log(alreves);
+
+        // Interseccion
+
+        var interseccion = new Set([...set].filter(element => set2.has(element)));
+        console.log("Los objetos comunes, son: ", interseccion);
+
+        // Diferencia
+        // Que los elementos del set 1 no se encuentren en el set 2
+
+        var diferenciaSet = new Set([...set].filter(elemento => !set2.has(elemento)));
+        console.log(diferenciaSet);
+
+        // Que los elementos del set 2 no se enceuntren en el set
+
+        var diferenciaSet2 = new Set([...set2].filter(elemento=> !set.has(elemento)));
+        console.log(diferenciaSet2);
+
+        // Exclusión
+
+        //[...1Set].filter(element => !2Set.has(element));
+        //[...2Set].filter(element => !1Set.has(element));
+
+        const exclusion = new Set([...diferenciaSet,...diferenciaSet2]);
+        console.log("Los excluidos, son: ", exclusion);
+    </script>
+</body>
+</html>

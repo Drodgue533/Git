@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegacion usando matches y closest</title>
+</head>
+<body>
+    <div id="contenedor">
+        <button class="borrar">Borrar</button>
+        <button class="borrar">Eliminar</button>
+    </div>
+    <article>
+        <div id="div1">Esto es div1
+            <div id="div2">Esto es un div2
+                <div id="div3">Esto es un div3</div>
+            </div>
+        </div>
+    </article>
+    <script>
+        /*
+        Los métodos más usuales para la delegación
+        son matches y closest.
+        matches comprueba si coincide con el elemento y closest devuelve el padre más cercano que coincide con el selector
+        */
+
+        const contenedor = document.getElementById('contenedor');
+        contenedor.addEventListener("click", function(evento)
+        {
+            const boton = evento.target.closest(".borrar");
+            if(boton)
+            {
+                console.log("Clikeado el boton");
+            }
+        });
+        const elemento = document.getElementById("div3");
+        console.log(elemento.closest("#div2"));
+        console.log(elemento.closest("div div"));
+        console.log(elemento.closest("article > div"));
+        console.log(elemento.closest(":not(div)"));
+    </script>
+</body>
+</html>

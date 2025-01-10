@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Ejercicio 1:
+
+    Crea un Set con los números del 1 al 5, y luego usa .size() para obtener el número de elementos del Set.
+        */
+
+        const set = new Set([1, 2, 3, 4, 5]);
+        console.log(set.size);
+
+        /*
+        Ejercicio 2:
+
+    Añade el número 6 al Set creado en el ejercicio 1 utilizando .add(). Imprime el Set después de añadir el elemento.
+        */
+        const set2 = set.add(6);
+        console.log(set2);
+
+        /*
+        Ejercicio 3:
+
+    Verifica si el número 3 está presente en el Set creado en el ejercicio 1 utilizando .has(). Imprime el resultado.
+        */
+
+        console.log(set2.has(3));
+
+        /*
+        Ejercicio 4:
+
+    Elimina el número 4 del Set creado en el ejercicio 1 utilizando .delete(). Imprime el Set después de eliminar el elemento.
+        */
+        set2.delete(4);
+        console.log(set2);
+
+        /*
+        Ejercicio 5:
+
+    Vacía completamente el Set creado en el ejercicio 1 utilizando .clear(). Imprime el Set después de vaciarlo.
+        */
+
+        set.clear();
+        console.log(set);
+        /*
+        Ejercicio 6:
+
+    Crea un Set a partir del array [1, 2, 2, 3, 3, 4] y muestra el Set resultante (debe eliminar los duplicados).
+        */
+
+        const array = [1, 2, 2, 3, 3, 4];
+
+        const set4 = new Set(array);
+
+        console.log(set4);
+
+        /*
+        Ejercicio 7:
+
+    Añade un objeto { name: "John" } al Set, luego verifica si ese objeto existe en el Set utilizando .has().
+    */
+
+        const set3 = new Set();
+
+        const obj = { name: "John" };
+
+        set.add(obj);
+
+        // Verificamos que el objeto existe
+
+        console.log(set.has(obj));
+
+        console.log(set.has({ name: "John" }));  // Debería devolver false porque es un objeto diferente en memoria
+
+        /*
+        Ejercicio 8:
+   
+       Intenta eliminar el número 10 de un Set que contiene los valores [5, 6, 7] utilizando .delete(). Imprime el Set después de intentar eliminar el elemento.
+   */
+
+        // Crear un Set con los valores 5, 6, y 7
+        const set6 = new Set([5, 6, 7]);
+
+        // Intentar eliminar el número 10 del Set
+        const eliminado = set6.delete(10);
+
+        // Imprimir si el número 10 fue eliminado
+        console.log(eliminado);  // Debería devolver false, ya que el número 10 no está en el Set
+
+        // Imprimir el Set después del intento de eliminación
+        console.log(set6);  // Debería seguir mostrando: Set { 5, 6, 7 }
+
+        /*
+        Ejercicio 9:
+
+    Crea un Set a partir del array [1, 1, 2, 3, 3, 4], luego usa .size() para obtener el número de elementos en el Set.
+*/
+
+        const array2 = [1, 1, 2, 3, 3, 4];
+        const set9 = new Set(array);
+        console.log(set9.size);
+
+        /*
+            Ejercicio 10:
+    
+    Itera sobre un Set creado con los valores [10, 20, 30] utilizando .forEach() y muestra cada valor en la consola.
+        */
+
+        const set10 = new Set([10,20,30]);
+
+        set10.forEach(valor => {
+            console.log(valor);
+        });
+    </script>
+</body>
+
+</html>

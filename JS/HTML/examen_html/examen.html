@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(65, 65, 173);
+            color: white;
+        }
+        nav{
+            margin: 0px;
+            padding: 0px;
+            background-color: rgb(22, 22, 107);
+            padding: 5px;
+        }
+        nav ul {
+            display: flex;
+            flex-direction: wrap;
+            justify-content: center;
+            gap: 5px;
+            list-style: none;
+        }
+        nav ul li{
+            background-color: rgb(105, 105, 189);
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        .contenedor {
+            display: grid;
+            grid-template-areas: "locales nacionales derecha"
+                                "locales nacionales derecha";
+            min-height: 100vh;
+            min-width: 100vh;
+        }
+        .locales {
+            grid-area: locales;
+            background-color: rgb(105, 105, 249);
+        }
+        .derecha{
+            grid-area: derecha;
+        }
+        .nacionales {
+            grid-area: nacionales;
+            background-color: rgb(105, 105, 249);
+        }
+        .cabecera{
+            background-color: rgb(40, 40, 167);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-left: 30px;
+            margin-right: 30px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            color: white;
+        }
+        .cuerpo{
+            margin-left: 30px;
+            margin-right: 30px;
+            
+            
+        }
+        .noticias_nacionales{
+            background-color: rgb(105, 105, 249);
+        }
+        p{
+            margin-left: 30px;
+        }
+        hr{
+            color: white;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(65, 65, 173);
+            color: white;
+        }
+        .pie{
+            background-color: rgb(65, 65, 173);
+            padding: 10px;
+            margin-left: 30px;
+            margin-right: 30px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .derecha{
+            background-color: rgb(105, 105, 189);
+        }
+        .redes{
+            background-color: white;
+            border-radius: 20px;
+            margin-left: 20px;
+        }
+        .publicidad{
+            background-color: white;
+            border-radius: 20px;
+            margin-left: 20px;
+        }
+        .redes h2{
+            margin-left: 20px;
+        }
+        .publicidad h2{
+            margin-left: 20px;
+        }
+        .redes img{
+         margin-left: 40px;  
+         padding-bottom: 30px ; 
+        }
+        .publicidad img{
+            margin-left: 40px;  
+            padding-bottom: 30px ; 
+           }
+    </style>
+    <header>
+        <h1>Práctica Diseño Web</h1>
+        <h2>Maquetación HTML5 y CSS3</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#"></a>Home</li>
+            <li><a href="#"></a>Servicios</li>
+            <li><a href="#"></a>Opciones</li>
+            <li><a href="#"></a>Planes</li>
+            <li><a href="#"></a>Contacto</li>
+        </ul>
+    </nav>
+    <div class="contenedor">
+        <div class="locales">
+            <div class="noticias_locales">
+                <p>Noticias Locales</p>
+                <div class="noticia">
+                    <div class="cabecera"><h2>Noticia 1</h2></div>
+                    <div class="cuerpo"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dolorem architecto repudiandae qui nesciunt laboriosam asperiores ab voluptatibus? Voluptatibus dolores error consequatur et dolor dolorum voluptatem architecto suscipit sapiente doloribus?</b></div>
+                    <div class="pie"></div>
+                </div>
+                
+                <hr>
+
+                <div class="noticia">
+                    <div class="cabecera"><h2>Noticia 2</h2></div>
+                    <div class="cuerpo"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dolorem architecto repudiandae qui nesciunt laboriosam asperiores ab voluptatibus? Voluptatibus dolores error consequatur et dolor dolorum voluptatem architecto suscipit sapiente doloribus?</b></div>
+                    <div class="pie"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="nacionales">
+            <div class="noticias_nacionales">
+                <p>Noticias Locales</p>
+                <div class="noticia">
+                    <div class="cabecera"><h2>Noticia 3</h2></div>
+                    <div class="cuerpo"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dolorem architecto repudiandae qui nesciunt laboriosam asperiores ab voluptatibus? Voluptatibus dolores error consequatur et dolor dolorum voluptatem architecto suscipit sapiente doloribus?</b></div>
+                    <div class="pie"></div>
+                </div>
+                <hr>
+                <div class="noticia">
+                    <div class="cabecera"><h2>Noticia 4</h2></div>
+                    <div class="cuerpo"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dolorem architecto repudiandae qui nesciunt laboriosam asperiores ab voluptatibus? Voluptatibus dolores error consequatur et dolor dolorum voluptatem architecto suscipit sapiente doloribus?</b></div>
+                    <div class="pie"></div>
+                </div>
+            </div>
+        </div>
+        <div class="derecha">
+            <div class="redes">
+                <h2>Redes Sociales</h2>
+                <img src="https://picsum.photos/100/100?random">
+            </div>
+            <div class="publicidad">
+                <h2>Publicidad</h2>
+                <img src="https://picsum.photos/100/100?random">
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Ejercicio Diseño Web</p>
+    </footer>
+</body>
+
+</html>

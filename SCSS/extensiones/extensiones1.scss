@@ -1,0 +1,36 @@
+.placeholder{
+    color:antiquewhite;
+    font-size: 10px;
+    font-style: italic;
+}
+
+// Extender esta clase
+
+.entrada-placeholder{
+    @extend .placeholder;
+}
+.textarea-placeholder{
+    @extend.placeholder;
+}
+
+/*
+
+.placeholder, .entrada-placeholder, .textarea-placeholder{
+color:antiquewhite;
+    font-size:10px;
+    font-style: italic;
+*/
+
+.boton{
+    padding: 10px 20px;
+    border-radius: 5px;
+    color:antiquewhite;
+}
+.primario-boton{
+    @extend .boton;
+    background-color: black;
+}
+.secundario-boton{
+    @extend .boton;
+    background-color: rgb(190,136,136);
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>Verificación de Datos</h1>
+        <form class="verificacion" id="verificar_form">
+            <div class="grupo">
+                <label for="matricula">Matrícula de Coche:</label>
+                <br>
+                <input type="text" id="matricula" required>
+                <div class="error" id="error_matricula">Matrícula No-Válida</div>
+            </div>
+            <div class="grupo">
+                <label for="dni">Teclee su DNI:</label>
+                <br>
+                <input type="text" id="dni" required>
+                <div class="error" id="error_dni">DNI No-Válido</div>
+            </div>
+            <div class="grupo">
+                <label for="nss">Número de la Seguridad Social: </label>
+                <br>
+                <input type="text" id="nss" required>
+                <div class="error" id="error_nss">NSS No-Válido</div>
+            </div>
+            <button type="submit">Verificar</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("verificar_form").addEventListener('submit', function (evento) {
+            evento.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+            // Obtener los campos
+            const matricula = document.getElementById('matricula').value.trim(); // trim() para eliminar espacios en blanco
+            const dni = document.getElementById('dni').value.trim();
+            const nss = document.getElementById('nss').value.trim();
+
+            console.log(matricula, dni, nss);
+
+            // Función para calcular la letra del DNI
+            function calcularLetra(dniNumerico) {
+                const cadenaDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+                const resto = dniNumerico % 23;
+                return cadenaDNI.charAt(resto); // Devuelve la letra correspondiente
+            }
+
+            // Expresión regular para matrícula
+            const regmatricula = /^[0-9]{4}-[A-Z]{3}$/;
+            const esmatricula = regmatricula.test(matricula);
+            if (esmatricula) {
+                document.getElementById('error_matricula').style.display = 'none';
+            } else {
+                document.getElementById('error_matricula').style.display = 'block';
+            }
+
+            // Expresión regular para DNI
+            const regdni = /^[0-9]{8}[A-Z]$/i;
+            const esdni = regdni.test(dni);
+            if (esdni) {
+                const numeroDNI = parseInt(dni.slice(0, 8), 10); // Extraer los números del DNI
+                const letra = dni.charAt(8).toUpperCase(); // Extraer la letra del DNI
+                const letraCalculada = calcularLetra(numeroDNI); // Calcular la letra correcta
+
+                if (letra === letraCalculada) {
+                    document.getElementById('error_dni').style.display = 'none';
+                } else {
+                    document.getElementById('error_dni').style.display = 'block';
+                    console.log(`La letra calculada debería ser: ${letraCalculada}`);
+                }
+            } else {
+                document.getElementById('error_dni').style.display = 'block';
+            }
+
+            // Expresión regular para NSS
+            const regnss = /^[0-9]{12}$/;
+            const esnss = regnss.test(nss);
+            if (esnss) {
+                document.getElementById('error_nss').style.display = 'none';
+            } else {
+                document.getElementById('error_nss').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

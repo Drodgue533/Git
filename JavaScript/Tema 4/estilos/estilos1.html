@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos</title>
+</head>
+<body>
+    <style>
+        .luzalta{
+            color:aliceblue;
+            background-color: green;
+        }
+    </style>
+    <div id="texto">La frase del día: "No fui ni seré policía"</div>
+    <button id="estilo">Aplicar Estilo</button>
+    <button id="clase">Cambiar la Clase</button>
+    <script>
+        const cogertexto = document.getElementById('texto');
+        const estilo = document.getElementById('estilo');
+        const clase = document.getElementById('clase');
+
+        estilo.addEventListener("click", function()
+        {
+            cogertexto.style.color = "blue";
+            cogertexto.style.fontSize = "25px";
+            cogertexto.style.border = "1px solid yellow";
+            const estilo_Actual = getComputedStyle(cogertexto);
+            console.log(estilo_Actual);
+        });
+        clase.addEventListener("click", function()
+        {
+            cogertexto.classList.toggle("luzalta");
+        });
+    </script>
+</body>
+</html>

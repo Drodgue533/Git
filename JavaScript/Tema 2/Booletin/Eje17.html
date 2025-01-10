@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar el color del Párrafo</title>
+</head>
+<body>
+    
+    <p id="color">Este es un párrafo cuyo color cambiará al pulsar un botón.</p>
+
+    
+    <button onclick="cambiarColor('red')">Rojo</button>
+    <button onclick="cambiarColor('green')">Verde</button>
+    <button onclick="cambiarColor('black')">Negro</button>
+    <button onclick="cambiarColor('blue')">Azul</button>
+    <button onclick="cambiarColor('purple')">Púrpura</button>
+    <script>
+       
+        function cambiarColor(color) {
+            
+            document.getElementById("color").style.color = color;
+        }
+    </script>
+
+</body>
+</html>

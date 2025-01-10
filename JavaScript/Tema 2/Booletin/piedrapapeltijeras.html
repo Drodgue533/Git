@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Piedra, Papel o Tijera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .resultado {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juego Piedra, Papel o Tijera</h1>
+
+    <p>Elige una opción:</p>
+
+    <button class="btn" onclick="jugar('piedra')">Piedra</button>
+    <button class="btn" onclick="jugar('papel')">Papel</button>
+    <button class="btn" onclick="jugar('tijera')">Tijera</button>
+
+    <div class="resultado" id="resultado"></div>
+
+    <script>
+        function jugar(opcionJugador) {
+            // Opciones posibles
+            const opciones = ['piedra', 'papel', 'tijera'];
+            
+            // Elección aleatoria de la computadora
+            const opcionComputadora = opciones[Math.floor(Math.random() * 3)];
+            
+            // Determinar el resultado
+            let resultado = '';
+
+            if (opcionJugador === opcionComputadora) {
+                resultado = "Empate! Ambos eligieron " + opcionJugador + ".";
+            } else if (
+                (opcionJugador === 'piedra' && opcionComputadora === 'tijera') ||
+                (opcionJugador === 'papel' && opcionComputadora === 'piedra') ||
+                (opcionJugador === 'tijera' && opcionComputadora === 'papel')
+            ) {
+                resultado = "¡Ganaste! " + opcionJugador.charAt(0).toUpperCase() + opcionJugador.slice(1) + " vence a " + opcionComputadora + ".";
+            } else {
+                resultado = "Perdiste. " + opcionComputadora.charAt(0).toUpperCase() + opcionComputadora.slice(1) + " vence a " + opcionJugador + ".";
+            }
+
+            // Mostrar el resultado en pantalla
+            document.getElementById('resultado').innerHTML = `Tu elección: ${opcionJugador} <br> Computadora: ${opcionComputadora} <br> ${resultado}`;
+
+            // Preguntar si quiere seguir jugando
+            continuarJuego();
+        }
+
+        function continuarJuego() {
+            const continuar = confirm("¿Quieres seguir jugando? (Cancelar para salir)");
+
+            if (continuar) {
+                // Si el jugador elige continuar, recarga la página para poder jugar de nuevo
+                location.reload();
+            } else {
+                // Si el jugador elige cancelar, muestra un mensaje de despedida
+                alert("Gracias por jugar. ¡Hasta la próxima!");
+            }
+        }
+    </script>
+</body>
+</html>

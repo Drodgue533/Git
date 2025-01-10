@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Eventos Keyboard</title>
+</head>
+<body>
+    <h1>Prueba para teclado</h1>
+    <p>Vamos a presionar una tecla y veremos
+        detalles sobre la tecla pulsada
+    </p>
+    <script>
+        document.addEventListener('keydown', function(event)
+        {
+            console.log("Codigo físico: " + event.code);
+            console.log("Valor de la tecla: " + event.key);
+            console.log("Parte del teclado: " + event.location)
+            console.log("Ha dejado pulsada la tecla: " + event.repeat);
+            console.log("Ha pulsado la tecla ALT?: " + event.altKey);
+            console.log("Ha pulsado la tecla CTRL?: " + event.ctrlKey);
+            console.log("Has pulsado SHIFT?: " + event.shiftKey);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="frutas"></p>
+    <p id="coches"></p>
+    <p id="salida"></p>
+    <script>
+        const frutas = ["Banana", "patata", "pera", "manzana"];
+        console.log(frutas);
+        frutas.push("mango");
+        fruta = frutas[2];
+
+        var cantidad = frutas.length;
+        console.log(cantidad);
+        frutas.sort(function (a,b)
+        {
+            return b - a;
+            //return a.localeCompare(b);
+        });
+
+        let texto ="<ul>";
+            for (let i = 0; i < frutas.length; i++){
+                texto += "<li>" + frutas[i] + "</li>"; 
+            }
+        texto += "</ul>";
+        document.getElementById("salida").innerHTML = texto;
+        frutas.push("Naranja");
+        frutas.push("Aguacate");
+        frutas.unshift("Limon");
+        frutas.pop();
+        frutas.shift();
+        // Obtiene de la primera fruta, la primera letra
+
+        console.log(frutas[0].charAt(0));
+
+        console.log(fruta.lastIndexOf("B"));
+
+            // for each y parámetros
+
+        frutas.forEach((elemento,indice,vector)=>{
+            console.log(elemento);
+                // console.log(indice);
+                // console.log(vector);
+
+            });
+        const numericos = [4,2,5,1,-1,8];
+        var maximo = 0;
+        var minimo = 0;
+        var posmaximo;
+        var posminimo;
+        for(let i = 0; i < numericos.length; i++){
+            if(numericos[i] > maximo){
+                maximo = numericos[i];
+                posmaximo = i;
+            }else if(numericos[i] < minimo){
+                minimo = numericos[i];
+                posminimo = i;
+            }
+        };
+        alert("El número máximo es: " + maximo);
+        alert("La posición del número máximo es: " + posmaximo);
+        alert("EL número mínimo es: " + minimo);
+        alert("La posición del número mínimo es: " + posminimo);
+
+        // sopa de letras
+
+        var letras = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
+        const filas = 10;
+        const columnas = 8;
+        document.write("<div class='tablero'>")
+        for(var i = 0; i < filas; i++){
+            for(var j = 0; j < columnas; j++){
+                letra = letras[Math.floor(Math.random()*letras.length)];
+                document.write("<input type='button' id='"+i+"-"+j+"' onclick='' value='"+letra+"'>");
+            }
+            document.write("<br>");
+        }
+        document.write("</div>");
+
+        // vestido con las propiedades de precio, descuento y el neto
+
+        var vestido = {
+            precio:15,
+            descuento:2,
+            neto: function(){
+                return this.precio * (1-this.descuento/100);
+            },
+        }
+
+        console.log(parseInt(vestido.precio));
+        vestido.descuento = parseInt(prompt("Precio Descuento"));
+        console.log(vestido.descuento);
+        vestido.color = "verde";
+
+        for(let propiedad in vestido)
+        {
+            console.log(propiedad,vestido[propiedad]);
+        }
+
+        delete vestido.color;
+
+        console.log("El precio neto es : " + vestido.neto() + " €");
+
+    </script>
+    <style>
+        .tablero{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        input{
+            width: 40px;
+            height: 40px;
+
+        }
+    </style>
+</body>
+</html>

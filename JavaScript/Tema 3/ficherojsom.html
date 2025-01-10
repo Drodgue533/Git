@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        fetch('datos.json')
+        .then(respuesta=>{
+            if(!respuesta.ok)
+            {
+                throw new Error('Mira la red, no responde ' + repuesta.statusText);
+            }
+            // Hay respuesta entonces vamos a convertir
+            // los datos como realmente los necesitamos
+            return respuesta.json();
+        })
+
+        .then(datos=>{
+           
+            console.log(datos);
+
+            // Los nombres de los trabajadores y su edad
+
+            datos.personas.forEach((persona)=> {
+                console.log(`Su nombre es ${persona.nombre} y tiene ${persona.edad} años`);
+            });
+
+            // filtro de aquellos trabajadores mayores de 30 usando filter
+            
+
+        })
+        .catch(error=>{
+            // manejo cualquier error que quiera
+            console.error('El error ha sido, ', error);
+        });
+
+    </script>
+</body>
+</html>

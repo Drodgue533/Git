@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set y Map</title>
+</head>
+<body>
+    <script>
+        var mi_map2 = new Map();
+        mi_map2.set("DWEC", [420, 25]);
+        mi_map2.set("SI", [415, 22]);
+        mi_map2.set("DIW", [300, 22]);
+        mi_map2.set("HLC", [42, 12]);
+        mi_map2.set("Deporte", [20, 5]);
+
+        // Variables para encontrar la clase con más y menos alumnos.
+
+        let maximoAlumnos = 0;
+        let claseMasAlumnos = "";
+
+        mi_map2.forEach((valor, clave) => {
+
+            // Comparar para encontrar la clase con más alumnos
+
+            if (valor[1] > maximoAlumnos) {
+                maximoAlumnos = valor[1];
+                claseMasAlumnos = clave;
+            }
+        });
+
+
+        mi_map2.forEach((valor, clave) => {
+            if (clave === claseMasAlumnos) {
+                document.write("<br>Las siglas son: " + clave + " y sus horas son --> " + valor[0] + " y sus alumnos: " + valor[1] + "<br>   Es la clase con mayor número de alumnos.");
+            } else {
+                document.write("<br>Las siglas son: " + clave + " y sus horas son --> " + valor[0] + " y sus alumnos: " + valor[1]);
+            }
+        });
+    </script>
+</body>
+</html>

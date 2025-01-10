@@ -1,0 +1,24 @@
+$fondo-defecto: #ffff;
+$texto-defecto: yellow;
+$bordes-defecto: 2px solid #cccc;
+$fuente-tamanio-defecto: 14px;
+$margen: 10px 0;
+
+// Funciones
+@mixin text-box($fondo:$fondo-defecto,$texto-color:$texto-defecto, $borde:$bordes-defecto, $fuente:$fuente-tamanio-defecto)
+{
+    background-color: $fondo;
+    color: $texto-color;
+    border: $borde;
+    font-size: $fuente;
+    padding: 10px;
+    margin: $margen;
+    border-radius: 4px;
+}
+.text-box-primera{
+    @include text-box($fondo:#3443, $texto-color: #ffbf, $borde:1px solid #2933, $fuente:16px);
+
+}
+.text-box-segunda{
+    @include text-box($fondo:rgba(255, 0, 0, 0.533), $texto-color: rgb(113, 198, 106),$borde:1px solid rgba(40, 84, 158, 0.2), $fuente:16px);
+}

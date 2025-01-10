@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Rotar Integrantes entre Equipos</h2>
+
+    <script>
+
+        let ocupados = ["Pedro", "Luisa", "Juan", "Ana", "Carlos"];
+        let libres = ["Marina", "Jose", "Alba", "Felipe", "Marta"];
+
+        function liberar(a,b){
+
+            const elemento1 = a.shift();
+            const elemenento2 = b.shift();
+
+            a.push(elemento2);
+            b.push(elemento1);
+
+        }
+
+        console.log("antes");
+        console.log("ocupados", ocupados);
+        console.log("libres", libres);
+
+        liberar(ocupados,libres);
+
+        console.log("despues");
+        console.log("ocupados", ocupados);
+        console.log("libres", libres);
+
+    </script>
+</body>
+</html>

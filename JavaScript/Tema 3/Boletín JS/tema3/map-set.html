@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Map y Set</title>
+</head>
+<body>
+    <script>
+        let set = new Set();
+        console.log(set.size);
+        let juan = {nombre: "Juan"};
+        let jose = {nombre: "Jose"};
+        let fran = {nombre: "Francisco"};
+        let pilar = {nombre: "Pilar"};
+        set.add(juan);
+        set.add(jose);
+        set.add(fran);
+        set.add(pilar);
+        set.add(juan);
+        console.log(set.size, set);
+        
+        //recorrer
+        for(let usuario of set){
+            console.log(usuario.nombre);
+        }
+
+        let set2 = new Set();
+        let juanito = {nombre: "Juanito"};
+        let joselito = {nombre: "Joselito"};
+        let pilarica = {nombre: "Pilarico"};
+        set2.add(juan);
+        set2.add(jose);
+        set2.add(fran);
+        set2.add(juanito);
+        set2.add(joselito);
+        set2.add(pilarica);
+        for(let usuario of set2){
+            console.log(usuario.nombre);
+        }
+
+        //union: const set = new Set([...1set, ...2set]);
+        const UnionSet = new Set([...set, ...set2]);
+        console.log(UnionSet);
+
+        const UnionSetReves = new Set([...set2, ...set]);
+        console.log(UnionSetReves);
+
+        //interseccion: [...1set].filter(element => 2set.has(element));
+        const IntersecionSet = new Set([...set].filter(element => set2.has(element)));
+        console.log(IntersecionSet);
+
+        //diferencia: [...1set].filter(element => !2set.has(element));
+        const DiferenciaSet1 = new Set([...set].filter(element => !set2.has(element)));
+        console.log(DiferenciaSet1);
+        const DiferenciaSet2 = new Set([...set2].filter(element => !set.has(element)));
+        console.log(DiferenciaSet2);
+
+        //exclusión:    [...1set].filter(element => !2set.has(element));
+        //              [...2set].filter(element => !1set.has(element));
+        const ExclusionSet = new Set([...DiferenciaSet1, ...DiferenciaSet2]);
+        console.log(ExclusionSet);
+
+        for(let valor of set){
+            console.log(valor);
+        }
+
+        set.forEach((valor, valor2, set) => {
+            console.log(valor);
+        });
+    </script>
+</body>
+</html>

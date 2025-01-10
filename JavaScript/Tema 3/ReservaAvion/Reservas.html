@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .formulario, .asientos{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        .asi{
+            background-color: #c0f0c0;
+            margin-left: 240px;
+            width: 400px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="formulario">
+            <h1>Reserva de plazas en el Avión</h1>
+            <form>
+                <label>Nombre</label>
+                <br>
+                <input type="text" id="nombre" required>
+                <br>
+                <br>
+                <label>Edad:</label>
+                <br>
+                <input type="text" id="edad" required>
+                <br>
+                <br>
+                <label>Número de asiento (1-20): </label>
+                <br>
+                <input type="number" id="asiento" min="1" max="20" default="0">
+                <br>
+                <br>
+                <button id="reservar" type="button" onclick="reservarAsiento()">Reservar</button>
+                <br>
+                <br>
+            </form>
+        </div>
+        <div class="asientos">
+            <div class="asi1"> Asiento 1: Libre</div>
+            <div class="asi2"> Asiento 2: Libre</div>
+            <div class="asi3"> Asiento 3: Libre</div>
+            <div class="asi4"> Asiento 4: Libre</div>
+            <div class="asi5"> Asiento 5: Libre</div>
+            <div class="asi6"> Asiento 6: Libre</div>
+            <div class="asi7"> Asiento 7: Libre</div>
+            <div class="asi8"> Asiento 8: Libre</div>
+            <div class="asi9"> Asiento 9: Libre</div>
+            <div class="asi10"> Asiento 10: Libre</div>
+            <div class="asi11"> Asiento 11: Libre</div>
+            <div class="asi12"> Asiento 12: Libre</div>
+            <div class="asi13"> Asiento 13: Libre</div>
+            <div class="asi14"> Asiento 14: Libre</div>
+            <div class="asi15"> Asiento 15: Libre</div>
+            <div class="asi16"> Asiento 16: Libre</div>
+            <div class="asi17"> Asiento 17: Libre</div>
+            <div class="asi18"> Asiento 18: Libre</div>
+            <div class="asi19"> Asiento 19: Libre</div>
+            <div class="asi20"> Asiento 20: Libre</div>
+        </div>
+    </div>
+
+    <script>
+
+        // Array del estado de los asientos
+
+        var estadoAsientos = [
+        false, false, false, false, false,
+        false, false, false, false, false,
+        false, false, false, false, false,
+        false, false, false, false, false,
+        false, false, false, false, false
+        ];
+
+        var reservas = [];
+       
+        function reservarAsiento()
+        {
+
+            // Recogemos los valores del formulario
+
+            const nombre = document.getElementById("nombre").value;
+            const edad = document.getElementById("edad").value;
+            const asiento = Number(document.getElementById("asiento").value);
+            var numeroAsiento = asiento -1;
+
+            if(estadoAsientos[numeroAsiento] == false){
+
+                // Reservamos
+
+                estadoAsientos[numeroAsiento]=true;
+
+                // Creamos el objeto para guardar la reserva
+
+                var pasajero = {
+                    nombre: nombre,
+                    edad: edad,
+                    asiento: asiento
+                };
+
+                // Guardamos la reserva en el array vacio
+
+                reservas.push(pasajero);
+
+                alert(`Asiento ${asiento} reservado!`);
+
+            }else{
+
+                alert(`El asiento ${asiento} está ocupado, por favor elija otro!`)
+                
+            }
+
+            alert("Estado de los asientos: " + estadoAsientos);
+            alert("Numero de asiento seleccionado: " + numeroAsiento);
+            alert("El pasajero es : " + reservas)
+
+        }
+       
+        function comprobarReservas(array){
+
+            
+
+        }
+       
+
+    </script>
+</body>
+
+</html>

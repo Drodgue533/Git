@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        li{
+            background-color: aquamarine;
+        }
+        .luzalta{
+            background-color: antiquewhite;
+        }
+    </style>
+    <ul>
+        <li>Primero</li>
+        <li class="luzalta">Segundo</li>
+        <li>Tercero</li>
+        <li>Cuarto</li>
+        <li class="luzalta">Quinto</li>
+        <li>Sexta</li>
+    </ul>
+
+    <script>
+
+        const li = document.querySelectorAll('li');
+
+        for(let elemento of li )
+        {
+            elemento.classList.toggle(".luzalta");
+        }
+
+        /* No hacerlo así
+
+        const lista = [...li];
+        lista.forEach(elemento=>
+        {
+            if(elemento.classList.contains(".luzalta")
+            {
+            elemento.classList.remove("luzalta");
+            }
+            else
+            {
+                elemento.classList.add("luzalta");
+            })
+        });
+
+        */
+
+    </script>
+
+</body>
+</html>

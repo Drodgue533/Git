@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .contenedor{
+        display: grid;
+        grid-template-areas: 'a b c c'
+                                'a d e f'
+                                'g d h h';
+        grid-template-columns: repeat(4,200px);
+        grid-template-rows: repeat(3,200px); 
+        max-width: 800px;
+        grid-gap: 1rem;
+        padding: 1rem;
+      
+        }
+        .a{
+            display: grid;
+            grid-area: a;
+        }
+        .b{
+            display: grid;
+            grid-area: b;
+        }
+        .c{
+            display: grid;
+            grid-area: c;
+        }
+        .d{
+            display: grid;
+            grid-area: d;
+        }
+        .e{
+            display: grid;
+            grid-area: e;
+        }
+        .f{
+            display: grid;
+            grid-area: f;
+        }
+        .g{
+            display: grid;
+            grid-area: g;
+        }
+        .h{
+            display: grid;
+            grid-area: h;
+        }
+
+    </style>
+    <div class="contenedor">
+        <div class="a">
+            <img src="https://picsum.photos/300/600?random">
+        </div>
+        <div class="b">
+            <img src="https://picsum.photos/200/200?random">
+        </div>
+        <div class="c">
+            <img src="https://picsum.photos/200/400?random">
+        </div>
+        <div class="d">
+            <img src="https://picsum.photos/200/250?random">
+        </div>
+        <div class="e">
+            <img src="https://picsum.photos/300/600?random">
+        </div>
+        <div class="f">
+            <img src="https://picsum.photos/300/600?random">
+        </div>
+        <div class="g">
+            <img src="https://picsum.photos/300/600?random">
+        </div>
+        <div class="h">
+            <img src="https://picsum.photos/300/600?random">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Eventos</title>
+</head>
+<body>
+    <!--
+        Haya dos botones:
+            1º Muestra la dirección url
+            2º Al pulsarque nos lleve a la SuperCopa
+    -->
+            <button id="bt1">Mostrar URL</button>
+            <hr>
+            <p id="url"></p>
+            <hr>
+            <button id="bt2">Nos lleva a la SuperCopa</button>
+            <hr>
+            <h2>Idiomas y Cookies</h2>
+            <p id="idioma"></p>
+            <p id="cookies"></p>
+            <hr>
+            <h2>Pedir una web y acceder a ella</h2>
+            <input type="text" name="url" id="url">
+            <button id="bt3">Ir a la URL</button>
+            <script>
+                document.getElementById('bt1').addEventListener('click', function()
+                {
+                    document.getElementById('url').innerHTML = window.location.href;
+                });
+                document.getElementById('bt2').addEventListener('click',function()
+                {
+                    window.open('https://www.marca.com/futbol/eurocopa.html')
+                });
+                function idioma_navegador()
+                {
+                    document.getElementById('idioma').innerHTML = "Idioma del Navegador: " + navigator.language;
+                };
+                function cookies_navegador()
+                {
+                    document.getElementById('cookies').innerHTML = "Cokkies Habilitadas: " + navigator.cookieEnabled;
+                };
+
+                function ir_Url()
+                {
+                    document.getElementById('url').innerHTML = window.open(document.getElementById('url').value);
+                };
+                document.getElementById('bt3').addEventListener("click", ir_Url);
+                idioma_navegador();
+                cookies_navegador();
+            </script>
+</body>
+</html>

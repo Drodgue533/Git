@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Ejercicio 1: 
+        // Crea un Map con las claves 'a', 'b', 'c' y los valores 1, 2, 3, respectivamente. Luego, usa .get() para acceder a los valores de las claves 'a' y 'b'.
+        const map1 = new Map();
+        map1.set('a', 1);
+        map1.set('b', 2);
+        map1.set('c', 3);
+
+        console.log(map1.get('a')); // Imprime: 1
+        console.log(map1.get('b')); // Imprime: 2
+
+        // Ejercicio 2:
+        // Verifica si la clave 'd' existe en el Map.
+        const map2 = new Map();
+        map2.set('a', 1);
+        map2.set('b', 2);
+        map2.set('c', 3);
+
+        console.log(map2.has('d')); // Imprime: false
+
+        // Ejercicio 3:
+        // Agrega una nueva clave 'd' con el valor 4 al Map y luego elimina la clave 'b'. Muestra el Map después de estos cambios.
+        const map3 = new Map();
+        map3.set('a', 1);
+        map3.set('b', 2);
+        map3.set('c', 3);
+
+        map3.set('d', 4);
+        map3.delete('b');
+
+        console.log(map3);  // Imprime: Map(3) { 'a' => 1, 'c' => 3, 'd' => 4 }
+
+        // Ejercicio 4:
+        // Crea un Map con algunos pares clave-valor, luego usa .size() para obtener el número de elementos en el Map.
+        const map4 = new Map();
+        map4.set('a', 1);
+        map4.set('b', 2);
+        map4.set('c', 3);
+        map4.set('d', 4);
+
+        console.log(map4.size);  // Imprime: 4
+
+        // Ejercicio 5:
+        // Usa .clear() para vaciar un Map y luego imprime el tamaño del Map.
+        const map5 = new Map();
+        map5.set('a', 1);
+        map5.set('b', 2);
+
+        map5.clear();
+
+        console.log(map5.size);  // Imprime: 0
+
+        // Ejercicio 6:
+        // Itera sobre un Map utilizando .forEach() y muestra en consola tanto la clave como el valor de cada par.
+        const map6 = new Map();
+        map6.set('a', 1);
+        map6.set('b', 2);
+        map6.set('c', 3);
+
+        map6.forEach((value, key) => {
+            console.log(`${key}: ${value}`);
+        });
+        // Imprime:
+        // a: 1
+        // b: 2
+        // c: 3
+
+        // Ejercicio 7:
+        // Crea un Map con las claves 'name', 'age', y 'email' y sus respectivos valores. Luego, usa .get() para obtener el valor de 'age'.
+        const map7 = new Map();
+        map7.set('name', 'John');
+        map7.set('age', 30);
+        map7.set('email', 'john@example.com');
+
+        console.log(map7.get('age'));  // Imprime: 30
+
+        // Ejercicio 8:
+        // Crea un Map con valores numéricos como claves (por ejemplo, 1, 2, 3), luego utiliza .get() para obtener los valores correspondientes a las claves 1 y 3.
+        const map8 = new Map();
+        map8.set(1, 'one');
+        map8.set(2, 'two');
+        map8.set(3, 'three');
+
+        console.log(map8.get(1));  // Imprime: one
+        console.log(map8.get(3));  // Imprime: three
+
+        // Ejercicio 9:
+        // Verifica si existe la clave 'age' en un Map con claves de tipo 'string' y valores de tipo 'string'.
+        const map9 = new Map();
+        map9.set('name', 'Alice');
+        map9.set('age', '25');
+        map9.set('email', 'alice@example.com');
+
+        console.log(map9.has('age'));  // Imprime: true
+        console.log(map9.has('gender'));  // Imprime: false
+
+        // Ejercicio 10:
+        // Utiliza .set() para agregar un objeto como clave en un Map, luego accede a ese objeto a través del Map.
+        const map10 = new Map();
+        const user = { id: 1, name: 'Bob' };
+
+        map10.set(user, 'Active');
+
+        console.log(map10.get(user));  // Imprime: Active
+
+
+    </script>
+</body>
+
+</html>

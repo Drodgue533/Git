@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lote 3</title>
+</head>
+<body>
+    <script>
+        const alumnos = [
+            {
+                nombre: "Juaky Moreno",
+                matricula: "A001",
+                beca: true,
+                calificaciones: {
+                    filosofia: [8, 7, 9],
+                    matematicas: [7, 8, 7],
+                    fisica: [9, 6, 8],
+                    quimica: [6, 7, 7]
+                }
+            },
+            {
+                nombre: "Mari Guapa",
+                matricula: "A002",
+                beca: false,
+                calificaciones: {
+                    filosofia: [6, 5, 7],
+                    matematicas: [8, 9, 8],
+                    fisica: [7, 8, 8],
+                    quimica: [9, 8, 7]
+                }
+            },
+            {
+                nombre: "Carlos Vives",
+                matricula: "A003",
+                beca: true,
+                calificaciones: {
+                    filosofia: [9, 8, 9],
+                    matematicas: [6, 7, 7],
+                    fisica: [8, 9, 8],
+                    quimica: [7, 6, 7]
+                }
+            }            
+        ];
+
+        /*
+            Ej12 Calcula el promedio de calificaciones de una asignatura para un alumno
+        */
+        function calculaPromedio(nombre, asignatura) {
+        const alumno = alumnos.find(alumno => alumno.nombre === nombre);
+            if (alumno && alumno.calificaciones[asignatura]) {
+                const calificaciones = alumno.calificaciones[asignatura];
+                return (calificaciones.reduce((acum, valor) => acum + valor, 0) / calificaciones.length).toFixed(2);
+            }
+            return null;
+        }
+        console.log(calculaPromedio("Juaky Moreno", "filosofia"));
+        
+        /*
+            Ej13 Filtrar alumnos que tienen beca
+        */
+        function alumnosBeca() {
+            return alumnos.filter(alumno => alumno.beca)
+        }
+
+        console.log(alumnosBeca());
+
+        /*
+            Ej14 Ordernar alumnos por promedio de calificaciones
+        */
+        
+        function ordenarPorNota(array) {
+            return array.sort((a, b) => {
+                const promedioA = calcularPromedioTotal(a);
+                const promedioB = calcularPromedioTotal(b);
+                return promedioB - promedioA; // Orden descendente
+            });
+        }
+
+        function calcularPromedioTotal(alumno) {
+            const asignaturas = Object.keys(alumno.calificaciones);
+            const sumaPromedios = asignaturas.reduce((sum, asignatura) => {
+                const calificaciones = alumno.calificaciones[asignatura];
+                return sum + (calificaciones.reduce((a, b) => a + b) / calificaciones.length);
+            }, 0);
+            return sumaPromedios / asignaturas.length;
+        }
+
+        console.log("alumnos ordenados por nota");
+        ordenarPorNota(alumnos).forEach(alumno => console.log(alumno));
+
+        /*
+            Ej15 Alumnos por encima media 
+        */
+        function porEncimaMedia(){
+            
+        }
+        
+        /*
+            Ej16 Alumnos por debajo media 
+        */
+        function porDebajoMedia(){
+
+        }
+
+        //A partir siguiente
+        const numeros = [3, 45, 6, 23, 11, 52, 23, 23, 45, 11, 11];
+
+        /*
+            Ej17 Calcula el número de múltiplos de 5
+        */
+        function multiplos5(){
+            return numeros.map((numero) => {
+                if(numero%5 == 0){
+                    return numero;
+                }
+            }).filter(numero => numero !== undefined);
+        }
+
+        console.log(multiplos5());
+
+        /*
+            Ej18 Calcular la mediana
+        */
+        function laMediana(){
+            let tamanio = parseInt(numeros.length/2);
+            return numeros[tamanio];
+        };
+
+        console.log(laMediana());
+
+        /*
+            Ej19 Calcular la Moda
+        */
+        function laModa(){
+            
+        }
+
+        console.log(laModa());
+
+        /*
+            Ej20 Calcular la Desviación Estandar
+        */
+        function desviacionEstandar(){
+
+        }
+
+        console.log(desviacionEstandar());
+    </script>
+</body>
+</html>

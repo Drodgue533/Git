@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #contenedor
+        {
+            margin: 10px auto;
+            width: 540px;
+            height: 120px;
+        }
+        .reloj{
+            font-family: courier,sans-serif;
+            font-size: 80px;
+            color: rgb(3, 3, 93);
+            float: left;
+        }
+        .boton{
+            color: beige;
+            width: 130px;
+            height: 30px;
+            border: 1px solid black;
+            font-size: 20px;
+            font-family: helvetica;
+            background-image: linear-gradient(rgb(174, 172, 238),rgb(14, 5, 49));
+            cursor: pointer;
+        }
+        .boton:active{
+            background-image: -o-linear-gradient(rgb(105, 160, 105),green);
+        }
+        .boton:hover{
+            box-shadow: 0px 0px 14px rgb(83, 146, 209);
+        }
+    </style>
+    <div id="contenedor">
+    <div class="reloj" id="horas">00</div>
+    <div class="reloj" id="minutos">:00</div>
+    <div class="reloj" id="segundos">:00</div>
+    <div class="reloj" id="centesimas">:00</div>
+    <input type="button" class="boton" id="inicio" value="Iniciar &#9658;" onclick="inicio();">
+    <input type="button" class="boton" id="parar" value="Parar &#8718;" onclick="parar()">
+    <input type="button" class="boton" id="continuar" value="Continuar &#8634;" onclick="">
+    <input type="button" class="boton" id="reinicio" value="Reiniciar &#8635;" onclick="reinicio()">
+</div>
+<script>
+    var centesimas=0;
+    var segundos=0;
+    var minutos=0;
+    var horas=0;
+    function inicio()
+    {
+        control = setInterval(cronometro, 1);
+        
+    }
+    function parar()
+    {
+        clearInterval(control);
+    }
+    function reinicio()
+    {
+        clearInterval(control);
+        centesimas=0;
+        segundos=0;
+        minutos=0;
+        horas=0;
+        centesimas.innerHTML=":00";
+        segundos.innerHTML=":00";
+        minutos.innerHTML=":00";
+        horas.innerHTML="00";
+    }
+    function cronometro() {
+        centesimas++; 
+        document.getElementById("centesimas").innerHTML = ":" + (centesimas < 10 ? "0" + centesimas : centesimas);
+    
+        if (centesimas === 100) {
+            centesimas = 0;
+            segundos++;
+            
+            if (segundos < 10) {
+                document.getElementById("segundos").innerHTML = ":0" + segundos;
+            } else {
+                document.getElementById("segundos").innerHTML = ":" + segundos;
+            }
+    
+            if (segundos === 60) {
+                segundos = 0;
+                minutos++;
+    
+                if (minutos < 10) {
+                    document.getElementById("minutos").innerHTML = ":0" + minutos;
+                } else {
+                    document.getElementById("minutos").innerHTML = ":" + minutos;
+                }
+            }
+        }
+    }
+    
+</script>
+</body>
+</html>

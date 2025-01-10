@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotar Equipos</title>
+</head>
+<body>
+    <h2>Rotar Integrantes entre Equipos</h2>
+
+    <script>
+        // Definimos los arrays iniciales
+        let ocupados = ["Pedro", "Luisa", "Juan", "Ana", "Carlos"];
+        let libres = ["Marina", "Jose", "Alba", "Felipe", "Marta"];
+
+      
+        function rotar(a, b) {
+           
+            const primero = a.shift(); 
+            const segundo = b.shift(); 
+    
+            a.push(segundo); 
+            b.push(primero); 
+        }
+
+        // Mostrar los arrays antes de rotar
+        console.log("Antes de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+
+        // Llamamos a la función rotar
+        rotar(ocupados, libres);
+
+        // Mostrar los arrays después de rotar
+        console.log("Después de rotar:");
+        console.log("Ocupados:", ocupados);
+        console.log("Libres:", libres);
+    </script>
+</body>
+</html>
